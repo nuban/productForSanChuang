@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blockchain.mapper.ShoppingCartMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.blockchain.pojo.ShoppingCart">
+        <id column="id" property="id" />
+        <result column="commodity_id" property="commodityId" />
+        <result column="cmd_name" property="cmdName" />
+        <result column="cmd_price" property="cmdPrice" />
+        <result column="cmd_address" property="cmdAddress" />
+        <result column="new_address" property="newAddress" />
+        <result column="user_id" property="userId" />
+        <result column="cmd_images" property="cmdImages" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, commodity_id, cmd_name, cmd_price, cmd_address, new_address, user_id, cmd_images
+    </sql>
+
+</mapper>

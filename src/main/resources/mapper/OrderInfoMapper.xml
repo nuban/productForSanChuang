@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blockchain.mapper.OrderInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.blockchain.pojo.OrderInfo">
+        <id column="id" property="id" />
+        <result column="commodity_name" property="commodityName" />
+        <result column="commodity_id" property="commodityId" />
+        <result column="commodity_price" property="commodityPrice" />
+        <result column="commodity_images" property="commodityImages" />
+        <result column="commodity_info" property="commodityInfo" />
+        <result column="seller_add" property="sellerAdd" />
+        <result column="buyer_id" property="buyerId" />
+        <result column="buyer_add" property="buyerAdd" />
+        <result column="creat_time" property="creatTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List" >
+        id, commodity_name, commodity_id, commodity_price, commodity_images, commodity_info, seller_add, buyer_id, buyer_add, creat_time
+    </sql>
+
+</mapper>
