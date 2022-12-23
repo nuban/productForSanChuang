@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="author" content="Labartisan">
+    <meta name="description"
+        content="Anftiz is a full-fledged NFT or Digital assets marketplace HTML template. It is suitable for selling NFTs, or non-fungible tokens, Digital Arts, Digital Music & All types of Digital Assets. You can create, sell & collect NFT’s or digital assets through this website.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Meta tags for Social Media(Better SEO) -->
+    <!-- <meta property="og:title" content=""> -->
+    <!-- <meta property="og:type" content=""> -->
+    <!-- <meta property="og:url" content=""> -->
+    <!-- <meta property="og:image" content=""> -->
+
+    <!-- site favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+
+    <!-- ====== All css file ========= -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css//icofont.min.css">
+    <link rel="stylesheet" href="/assets/css/animate.css">
+    <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <!-- site title -->
+    <title>NFTs</title>
+</head>
+
+<body>
+    <!-- preloader start here -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- preloader ending here -->
+
+    <!-- ===============// header section start here \\================= -->
+    <th:block th:include="common.html :: headers"></th:block>
+    <!-- ===============//header section end here \\================= -->
+
+
+
+    <!-- ==========Page Header Section Start Here========== -->
+    <section class="page-header-section style-1">
+        <div class="container">
+            <div class="page-header-content">
+                <div class="page-header-inner">
+                    <div class="page-title">
+<!--                        <h2> N F T s </h2>-->
+                        <h2> 农 产 品 全 览 </h2>
+                    </div>
+                    <ol class="breadcrumb">
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ==========Page Header Section Ends Here========== -->
+
+
+    <!-- ==========explore Section start Here========== -->
+    <section class="explore-section explore-page padding-top padding-bottom">
+        <div class="container">
+            <div class="section-wrapper">
+                <div class="explore-wrapper g-4 explore-filter">
+                    <ul>
+                        <li th:each="pro:${product}">
+                            <div class="nft-item  art virtual">
+                                <div class="nft-inner">
+                                    <!-- nft-bottom part -->
+                                    <div class="nft-item-bottom">
+                                        <div class="nft-thumb" >
+                                            <a th:href="'/product/detail/'+${pro.getId()}">
+<!--                                                <img th:src="'/images/' + ${pro.getImages()}" width="185" height="155" />-->
+                                                <img th:src="'http://localhost:80/image/checkImage?fileName=' + ${pro.getImages()}" width="185" height="155" style="width: 250px;height: 170px;" />
+                                            </a>
+                                        <!--    <span class="badge rounded-pill position-absolute"><i class="icofont-heart"></i>
+                                        1.3k</span> -->
+                                        </div>
+                                        <div class="nft-content">
+                                            <div class="content-title">
+                                                <h5><a th:href="'/product/detail/'+${pro.getId()}" th:text="${pro.getCommodityName()}">商品 &#xe829;</a>
+                                                </h5>
+                                            </div>
+                                            <div class="price-like d-flex justify-content-between align-items-center">
+                                                <div class="nft-price d-flex align-items-center">
+                                            <span class="currency-img">
+                                                <img src="/assets/images/currency/currency-1.png" alt="currency img" style="height:50px;width:50px;border-radius: 50%;">
+<!--                                                <img th:src="${session.user.getHeadImage()}" alt="currency img" style="height:50px;width:50px;border-radius: 50%;">-->
+                                            </span>
+                                                    <p style="margin-left: -5px;"><span th:text="${pro.getCommodityPrice()}"></span>￥</p>
+                                                </div>
+
+                                                <a th:href="'/product/detail/'+${pro.getId()}" class="nft-bid" style="margin-right: -5px;">详细</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                       </li>
+                    </ul>
+                </div>
+                <div class="text-center mt-5">
+                    <a href="" class="default-btn move-bottom"><span>更 多</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ==========explore Section ends Here========== -->
+
+
+
+    <!-- ===============//footer section start here \\================= -->
+
+    <!-- ===============//footer section end here \\================= -->
+
+
+
+    <!-- scrollToTop start here -->
+    <a href="#" class="scrollToTop"><i class="icofont-swoosh-up"></i></a>
+    <!-- scrollToTop ending here -->
+
+
+
+
+    <!-- All Scripts -->
+    <script src="/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/waypoints.min.js"></script>
+    <script src="/assets/js/swiper-bundle.min.js"></script>
+    <script src="/assets/js/countdown.min.js"></script>
+    <script src="/assets/js/jquery.counterup.min.js"></script>
+    <script src="/assets/js/wow.min.js"></script>
+    <script src="/assets/js/jquery.simpleLoadMore.min.js"></script>
+    <script src="/assets/js/isotope.pkgd.min.js"></script>
+    <script src="/assets/js/functions.js"></script>
+</body>
+
+</html>

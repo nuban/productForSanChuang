@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="author" content="Labartisan">
+    <meta name="description"
+        content="Anftiz is a full-fledged NFT or Digital assets marketplace HTML template. It is suitable for selling NFTs, or non-fungible tokens, Digital Arts, Digital Music & All types of Digital Assets. You can create, sell & collect NFT’s or digital assets through this website.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Meta tags for Social Media(Better SEO) -->
+    <!-- <meta property="og:title" content=""> -->
+    <!-- <meta property="og:type" content=""> -->
+    <!-- <meta property="og:url" content=""> -->
+    <!-- <meta property="og:image" content=""> -->
+
+    <!-- site favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+
+    <!-- ====== All css file ========= -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css//icofont.min.css">
+    <link rel="stylesheet" href="/assets/css/animate.css">
+    <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <!-- site title -->
+    <title>NFT</title>
+</head>
+
+<body>
+    <!-- preloader start here -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- preloader ending here -->
+
+    <!-- ===============// header section start here \\================= -->
+    <th:block th:include="common.html :: headers"></th:block>
+    <!-- ===============//header section end here \\================= -->
+
+
+
+    <!-- ==========Page Header Section Start Here========== -->
+    <section class="page-header-section style-1">
+        <div class="container">
+            <div class="page-header-content">
+                <div class="page-header-inner">
+                    <div class="page-title">
+                        <h2> NFT 详 细 </h2>
+                    </div>
+                    <ol class="breadcrumb">
+                        <li><a href="index.html">主页</a></li>
+                        <li class="active">商品详细</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ==========Page Header Section Ends Here========== -->
+
+
+    <!-- ==========Item Details Section start Here========== -->
+    <div class="item-details-section padding-top padding-bottom">
+        <div class="container">
+            <div class="item-details-wrapper">
+                <div class="row g-5">
+                    <div class="col-lg-6">
+                        <div class="item-desc-part">
+                            <div class="item-desc-inner">
+                                <div class="item-desc-thumb">
+                                    <img th:src="'http://localhost:80/image/checkImage/'+${commodityDetail.getImage}" style="width:450px" alt="item-img">
+                                </div>
+                                <div class="item-desc-content">
+                                    <nav>
+                                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                            <button class="nav-link active" id="nav-details-tab" data-bs-toggle="tab"
+                                                data-bs-target="#nav-details" type="button" role="tab"
+                                                aria-controls="nav-details" aria-selected="true">详细</button>
+                                        </div>
+                                    </nav>
+                                    <div class="tab-content" id="nav-tabContent">
+                                        <div class="details-tab tab-pane fade show active" id="nav-details"
+                                            role="tabpanel" aria-labelledby="nav-details-tab">
+
+                                            <p><span th:text="${commodityDetail.getInformation()}"></span></p>
+                                            <div class="author-profile d-flex flex-wrap align-items-center gap-15">
+                                                <div class="author-p-thumb">
+                                                    <a href="author.html"><img
+                                                            th:src="'http://localhost:80/image/headImage/' + ${author.getHeadImage()}"
+                                                            alt="author-img "></a>
+                                                </div>
+                                                <div class="author-p-info">
+                                                    <p class="mb-0">拥有者</p>
+                                                    <h6><a href="author.html" th:text="${author.getUserName()}"></a></h6>
+                                                </div>
+                                            </div>
+                                            <ul class="other-info-list">
+                                                <li class="item-other-info">
+                                                    <div class="item-info-title">
+                                                        <h6>作 者 地 址</h6>
+                                                    </div>
+                                                    <div class="item-info-details">
+                                                        <div id="cryptoCode" class="crypto-page">
+                                                            <input id="cryptoLink"
+                                                                th:value="${author.getMoneryAdd()}"
+                                                                readonly>
+                                                            <div id="cryptoCopy" data-bs-toggle="tooltip"
+                                                                data-bs-placement="top" title="Copy Address">
+                                                                <span class="copy-icon">
+                                                                    <i class="icofont-ui-copy" aria-hidden="true"
+                                                                        data-copytarget="#cryptoLink"></i>
+                                                                </span>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </li>
+                                                <li class="item-other-info">
+                                                    <div class="item-info-title">
+                                                        <h6>区 块 链 </h6>
+                                                    </div>
+                                                    <div class="item-info-details">
+                                                        <p>Ethereum (ETH)</p>
+                                                    </div>
+                                                </li>
+
+                                                <li class="item-other-info">
+                                                    <div class="item-info-title">
+                                                        <h6>大 小</h6>
+                                                    </div>
+                                                    <div class="item-info-details">
+                                                        <p>1000 x 1000 px.VIDEO (19.85MB)</p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="item-buy-part">
+                            <div class="nft-item-title">
+                                <h3><span th:text="${commodityDetail.getCommodityName()}"></span></h3>
+                            </div>
+                            <div class="item-details-countdown">
+                                <h4>发售时间:</h4>
+                                <ul class="item-countdown-list count-down" data-date="June 05, 2022 21:14:01">
+                                    <li>
+                                        <span class="days">34</span><span class="count-txt">天</span>
+                                    </li>
+                                    <li>
+                                        <span class="hours">09</span><span class="count-txt">小时</span>
+                                    </li>
+                                    <li>
+                                        <span class="minutes">32</span><span class="count-txt">分钟</span>
+                                    </li>
+                                    <li>
+                                        <span class="seconds">32</span><span class="count-txt">秒</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="item-price">
+                                <h4>价格</h4>
+                                <p><i class="icofont-coins"></i><span th:text="${commodityDetail.getCommodityPrice()}"><i class="icofont-coins"></i> ETH
+                                    </span></p>
+                            </div>
+                            <div class="buying-btns d-flex flex-wrap">
+                                <a th:href="'/shoppingCart/buy/'+${commodityDetail.getId()}+'/'+${commodityDetail.getCommodityPrice()}" class="default-btn style-2 move-right">
+                                    <span>
+                                        购 买
+                                    </span>
+                                </a>
+                                <a th:href="'/shoppingCart/add/'+${commodityDetail.getId()}+'/'+${commodityDetail.getCommodityPrice()}" class="default-btn style-2 move-right"><span>收藏</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ==========Item Details Section ends Here========== -->
+
+
+
+    <!-- ===============//footer section start here \\================= -->
+    <th:block th:include="common.html :: footers"></th:block>
+    <!-- ===============//footer section end here \\================= -->
+
+
+
+    <!-- scrollToTop start here -->
+    <a href="#" class="scrollToTop"><i class="icofont-swoosh-up"></i></a>
+    <!-- scrollToTop ending here -->
+
+
+
+
+    <!-- All Scripts -->
+    <script src="/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/waypoints.min.js"></script>
+    <script src="/assets/js/swiper-bundle.min.js"></script>
+    <script src="/assets/js/countdown.min.js"></script>
+    <script src="/assets/js/jquery.counterup.min.js"></script>
+    <script src="/assets/js/wow.min.js"></script>
+    <script src="/assets/js/jquery.simpleLoadMore.min.js"></script>
+    <script src="/assets/js/isotope.pkgd.min.js"></script>
+    <script src="/assets/js/functions.js"></script>
+</body>
+
+</html>

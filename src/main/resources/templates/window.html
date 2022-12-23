@@ -1,0 +1,20 @@
+
+<div id="msgDiv" align="center" style="background: white; border: 1px solid rgb(153, 187, 232); position: absolute; left: 50%; top: 30%; font: 12px / 25px Verdana, Geneva, Arial, Helvetica, sans-serif; margin-left: -225px; margin-top: -75px; width: 400px; height: 400px; text-align: center; z-index: 10001;">
+    <h4 id="msgTitle" align="right" style="margin: 0px; padding: 3px; background: rgb(153, 187, 232); border: 1px solid rgb(153, 187, 232); height: 18px; font: 12px Verdana, Geneva, Arial, Helvetica, sans-serif; color: white; cursor: pointer;">关闭</h4>
+    <p id="msgTxt" style="margin: 1em 0px;"><div class="upload-item mb-30">
+        <form id="upload" action="/tempname/updateheadimg" method="post" enctype="multipart/form-data">
+            <input type="hidden" value="1" name="productAttrId"><input type="hidden" value="2" name="productId">选择图片：
+            <input class="file" type="file" id="file" name="productPic">
+            <a class="easyui-linkbutton l-btn l-btn-plain" iconcls="icon-ok" href="#">
+                    <span>
+                        <button type="submit">
+                            <span class="l-btn-text icon-ok" onclick="upload(3)" style="padding-left: 20px;">
+                                上传
+                            </span>
+                        </button>&gt;
+                    </span>
+            </a>
+        </form>
+        </div>
+    </p>
+</div>

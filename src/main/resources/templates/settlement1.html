@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:include="common.html :: source"></th:block>
+    <script type="text/javascript" src="/js/settlement.js"></script>
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <!-- ====== All css file ========= -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css//icofont.min.css">
+    <link rel="stylesheet" href="/assets/css/animate.css">
+    <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body >
+<!-- ===============// header section start here \\================= -->
+    <div class="container-fluid">
+    <div class="header__content">
+        <div class="header__logo">
+            <a href="/">
+                <img src="/assets/images/logo/logo.gif" alt="logo">
+            </a>
+        </div>
+
+        <form action="#" class="header__search">
+            <input type="text" placeholder="搜索艺术品">
+            <button type="button"><i class="icofont-search-2"></i></button>
+            <button type="button" class="close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                        d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z" />
+            </svg></button>
+        </form>
+
+
+        <div class="header__actions">
+            <div class="header__action header__action--search">
+                <i class="icofont-search-1"></i>
+            </div>
+
+            <div class="header__action header__action--profile">
+                <div class="dropdown" style="width:100px">
+                    <a href="/product/myproduct" th:if="${session.user!=null}" style="width:70px">我的NFT</a>&nbsp;
+                </div>
+                <div class="dropdown" >
+                    <span class="d-none d-md-inline" th:if="${session.user==null}"><a href="/login">登陆</a></span>
+                    <span class="d-none d-md-inline" th:if="${session.user!=null}" style="width:100px"><span>欢迎回来,</span><span th:text="${session.user.getUserName()}"></span>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="author.html"><span class="me-1"><i
+                                    class="icofont-options"></i></span>
+                                Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="activity.html"><span class="me-1"><i
+                                    class="icofont-lightning-ray"></i></span>
+                                Activity</a></li>
+                            <li><a class="dropdown-item" href="/login"><span class="me-1"><i
+                                    class="icofont-login"></i></span> 登录 </a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li><a class="dropdown-item" href="#"> 注销 <span class="ms-1"><i class="icofont-logout"></i></span></a></li>
+                        </ul>
+                            </span>
+                </div>
+            </div>
+            <div class="wallet-btn" style="width:70px">
+                <span class="d-none d-md-inline" th:if="${session.user==null}"><a href="/register" style="width:50px">注册</a></span>
+                <a href="wallet.html" th:if="${session.user!=null}"><span><i class="icofont-wallet" data-blast="color"></i></span> <span
+                        class="d-none d-md-inline" >234.98ETH</span> </a>
+            </div>
+        </div>
+
+        <!--            <button class="menu-trigger header__btn" id="menu05">-->
+        <!--                <span></span>-->
+        <!--                <span></span>-->
+        <!--                <span></span>-->
+        <!--            </button>-->
+    </div>
+</div>
+<!-- ===============//header section end here \\================= -->
+<section class="page-header-section style-1" style="height:100px">
+    <div class="container" style="height:100px">
+        <div class="page-header-content" style="margin-top:-5%">
+            <div class="page-header-inner">
+                <div class="page-title">
+                    <h2>支 付 界 面 </h2>
+                </div>
+                <ol class="breadcrumb">
+                    <li><a href="index.html">主 页</a></li>
+                    <li class="active">支 付 </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="explore-section explore-page padding-top padding-bottom">
+    <div class="i_bg" style="margin-top:-5%">
+        <div id="settlement" style="margin-left:10%">
+
+            <div class="content mar_20">
+                <img src="/images/img1.jpg" />
+            </div>
+            <div class="content mar_20">
+                <table border="0" class="car_tab"
+                       style="width: 1200px; margin-bottom: 50px;" cellspacing="0"
+                       cellpadding="0">
+                    <tr>
+                        <td class="car_th" width="200">商品名称</td>
+                        <td class="car_th" width="150">单价</td>
+                        <td class="car_th" width="150">购买数量</td>
+                        <td class="car_th" width="130">小计</td>
+                        <td class="car_th" width="150">操作</td>
+                    </tr>
+
+
+                    <tr class="goods" th:each="cart:${carList}">
+                        <td>
+                            <div class="c_s_img">
+                                <a><img th:src="'http://localhost:80/image/checkImage/'+ ${cart.getCmdImages()}" width="73" height="73" /></a>
+                            </div>
+                            <div th:text="${cart.getCmdName()}"> </div>
+                        </td>
+                        <td align="center" style="color: #ff4e00;" id="price" th:text="'￥'+ ${cart.getCmdPrice()}"></td>
+                        <td align="center">
+                            <div class="c_num">
+                                <input type="hidden" class="productPrice" value="100"/>
+                                <input type="hidden" class="productStock" value="5"/>
+                                <input type="button" value="" onclick="subQuantity(this)" class="car_btn_1" />
+                                <input type="text" value="2" name="quantit" class="car_ipt" readonly="readonly" />
+                                <input type="button" value="" onclick="addQuantity(this);" class="car_btn_2" />
+                            </div>
+                        </td>
+                        <input type="hidden" value="1" class="id"/>
+                        <td align="center" style="color: #ff4e00;" class="qprice" th:text="'￥'+ ${cart.getCmdPrice()}"></td>
+                        <td align="center">
+                            <a href="javascript:void(0);"
+                                              th:onclick="'removeCart(' + ${cart.getCommodityId()} + ');'" class="delete">删除</a></td>
+                    </tr>
+
+
+                    <tr height="70">
+                        <td colspan="6"
+                            style="font-family: 'Microsoft YaHei'; border-bottom: 0;"><span
+                                class="fr">商品总价：<b
+                                style="font-size: 22px; color: #ff4e00;" id="totalprice"></b></span></td>
+                    </tr>
+                    <tr valign="top" height="150">
+                        <td colspan="6" align="right">
+                            <!-- 继续购物 -->
+                            <!--<a href="/product/main"><img src="/images/buy1.gif" /></a> -->
+                            <a href="/product/main" class="default-btn move-top" ><span>继续购物</span> </a>
+                            <!-- 确认结算 -->
+                            <a href="/settlement2.html" class="default-btn move-top" ><span>确认结算</span> </a>
+                          <!--<a href="/settlement2.html" class="default-btn move-bottom"><img src="/images/buy2.gif" /></a>-->
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<th:block th:include="common.html :: footers"></th:block>
+
+<script src="/assets/js/jquery-3.6.0.min.js"></script>
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/waypoints.min.js"></script>
+<script src="/assets/js/swiper-bundle.min.js"></script>
+<script src="/assets/js/countdown.min.js"></script>
+<script src="/assets/js/jquery.counterup.min.js"></script>
+<script src="/assets/js/wow.min.js"></script>
+<script src="/assets/js/jquery.simpleLoadMore.min.js"></script>
+<script src="/assets/js/isotope.pkgd.min.js"></script>
+<script src="/assets/js/functions.js"></script>
+</body>
+</html>

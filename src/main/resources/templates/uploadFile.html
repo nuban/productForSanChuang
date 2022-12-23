@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="author" content="Labartisan">
+    <meta name="description"
+        content="Anftiz is a full-fledged NFT or Digital assets marketplace HTML template. It is suitable for selling NFTs, or non-fungible tokens, Digital Arts, Digital Music & All types of Digital Assets. You can create, sell & collect NFT’s or digital assets through this website.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ====****>  Meta tags for Social Media(Better SEO)  <****==== -->
+    <!-- <meta property="og:title" content=""> -->
+    <!-- <meta property="og:type" content=""> -->
+    <!-- <meta property="og:url" content=""> -->
+    <!-- <meta property="og:image" content=""> -->
+
+    <!-- site favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+
+    <!-- ====== All css file ========= -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css//icofont.min.css">
+    <link rel="stylesheet" href="/assets/css/animate.css">
+    <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <!-- site title -->
+    <title>作品上传</title>
+</head>
+
+<body>
+    <!-- preloader start here -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- preloader ending here -->
+
+    <!-- ===============// header section start here \\================= -->
+    <th:block th:include="common.html :: headers"></th:block>
+    <!-- ===============//header section end here \\================= -->
+
+
+
+    <!-- ==========Page Header Section Start Here========== -->
+    <section class="page-header-section style-1">
+        <div class="container">
+            <div class="page-header-content">
+                <div class="page-header-inner">
+                    <div class="page-title">
+                        <h2>创 建 我 的 NFT </h2>
+                    </div>
+                    <ol class="breadcrumb">
+                        <li><a href="index.html">主页</a></li>
+                        <li class="active">创 建 NFT</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ==========Page Header Section Ends Here========== -->
+
+    <!-- ==========Create NFT Section start Here========== -->
+    <section class="create-nft-section padding-bottom padding-top">
+        <div class="container">
+            <div class="section-wrapper">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <!-- create item -->
+                        <div class="create-nft py-5 px-4">
+                            <form class="create-nft-form" action="/tempname/upload" method="post" enctype="multipart/form-data">
+                                <!-- upload field -->
+                                <div class="upload-item mb-30">
+                                    <p>PNG,JPG,JPEG,SVG,WEBP,Mp3 & Mp4
+                                        (Max-150mb)</p>
+                                    <div class="custom-upload">
+                                        <div class="file-btn"><i class="icofont-upload-alt"></i>
+                                            上传文件</div>
+                                        <input  class="file" type="file" name="commodityImages" id="commodityImages" required/>
+                                    </div>
+                                </div>
+                                <!-- item name input -->
+                                <div id = 'xx' class="form-floating item-name-field mb-3">
+                                    <input type="text" class="form-control" id="commodityName" name="commodityName" placeholder="商 品 名 称">
+                                    <label for="commodityName">商 品 名 称</label>
+                                </div>
+                                <!-- item-description -->
+                                <div class="form-floating item-desc-field mb-30">
+                                    <textarea class="form-control" placeholder="详 细 描 述"
+                                        id="commodityInformation" name="commodityInformation"></textarea>
+                                    <label for="commodityInformation">详 细 描 述</label>
+                                </div>
+                                <!-- item-category -->
+                                <div class="item-category-field mb-30">
+                                    <h4>选择类别</h4>
+                                    <div class="form-floating">
+                                        <select class="form-select" id="commodityCategory" name="commodityCategory"
+                                                aria-label="Floating label select">
+                                            <option selected value="1">
+                                                <li class="item-cat-btn active">
+                                                    <span><i class="icofont-vector-path"></i></span>
+                                                    艺术类
+                                                </li>
+                                            </option>
+                                            <option value="2">
+                                                <li class="item-cat-btn">
+                                                    <span><i class="icofont-music-disk"></i></span>
+                                                    音乐类
+                                                </li>
+                                            </option>
+                                            <option value="3">
+                                                <li class="item-cat-btn">
+                                            <span>
+                                                <i class="icofont-box"></i>
+                                            </span> 整合类
+                                                </li>
+                                            </option>
+                                            <option value="4">
+                                                <li class="item-cat-btn">
+                                                    <span><i class="icofont-ui-game"></i></span>
+                                                    运动类
+                                                </li>
+                                            </option>
+                                            <option value="5">
+                                                <li class="item-cat-btn">
+                                                    <span><i class="icofont-bill"></i></span>
+                                                    收集类
+                                                </li>
+                                            </option>
+                                            <option value="6">
+                                                <li class="item-cat-btn">
+                                                    <span><i class="icofont-penalty-card"></i></span>
+                                                    卡片类
+                                                </li>
+                                            </option>
+                                            <option value="7">
+                                                <li class="item-cat-btn">
+                                            <span>
+                                                <i class="icofont-box"></i>
+                                            </span> 元宇宙
+                                                </li>
+                                            </option>
+                                            <option value="8">
+                                                <li class="item-cat-btn">
+                                            <span>
+                                                <i class="icofont-box"></i>
+                                            </span> 领域类
+                                                </li>
+                                            </option>
+                                        </select>
+                                        <label for="commodityCategory">NFTs种类</label>
+                                    </div>
+                                </div>
+                                <!-- item price -->
+                                <div class="item-price-field mb-3">
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control" id="commodityPrice" name="commodityPrice"
+                                                    placeholder="价 格">
+                                                <label for="commodityPrice">价 格</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- submit button -->
+                                <div class="submit-btn-field text-center">
+                                    <button type="submit" >创建</button>
+                                </div>
+                            </form>
+
+
+                                <p id="ssss" th:text="${checkData}" style="display: none">ss</p>
+<!--                            <p id="dfgfdate"  style="display: none">10</p>-->
+                            <script >
+                                    var afa = document.getElementById("ssss").innerText;
+                                    if(afa == "1"){
+                                        confirm("图片重复，请重新上传！！！");
+                                    }
+
+
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- ==========Create NFT Section Ends Here========== -->
+
+
+    <!-- ===============//footer section start here \\================= -->
+    <th:block th:include="common.html :: footers"></th:block>
+    <!-- ===============//footer section end here \\================= -->
+
+
+
+    <!-- scrollToTop start here -->
+    <a href="#" class="scrollToTop"><i class="icofont-swoosh-up"></i></a>
+    <!-- scrollToTop ending here -->
+
+
+
+
+    <!-- All Scripts -->
+    <script src="/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/waypoints.min.js"></script>
+    <script src="/assets/js/swiper-bundle.min.js"></script>
+    <script src="/assets/js/countdown.min.js"></script>
+    <script src="/assets/js/jquery.counterup.min.js"></script>
+    <script src="/assets/js/wow.min.js"></script>
+    <script src="/assets/js/jquery.simpleLoadMore.min.js"></script>
+    <script src="/assets/js/isotope.pkgd.min.js"></script>
+    <script src="/assets/js/functions.js"></script>
+</body>
+
+</html>

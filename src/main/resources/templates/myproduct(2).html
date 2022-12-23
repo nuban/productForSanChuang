@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="author" content="Labartisan">
+    <meta name="description"
+        content="Anftiz is a full-fledged NFT or Digital assets marketplace HTML template. It is suitable for selling NFTs, or non-fungible tokens, Digital Arts, Digital Music & All types of Digital Assets. You can create, sell & collect NFT’s or digital assets through this website.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Meta tags for Social Media(Better SEO) -->
+    <!-- <meta property="og:title" content=""> -->
+    <!-- <meta property="og:type" content=""> -->
+    <!-- <meta property="og:url" content=""> -->
+    <!-- <meta property="og:image" content=""> -->
+
+    <!-- site favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <script type="text/javascript" src="/js/settlement.js"></script>
+    <!-- ====== All css file ========= -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css//icofont.min.css">
+    <link rel="stylesheet" href="/assets/css/animate.css">
+    <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        .modal {
+    display: none; /* 默认隐藏 */
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+/* 弹窗内容 */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* 添加动画 */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* 关闭按钮 */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+    </style>
+<!--    <script type="text/javascript">-->
+<!--            // 获取弹窗-->
+<!--        var modal = document.getElementById('myModal');-->
+
+<!--        // 打开弹窗的按钮对象-->
+<!--        var btn = document.getElementById("myBtn");-->
+
+<!--        // 获取 <span> 元素，用于关闭弹窗 that closes the modal-->
+<!--        var span = document.getElementsByClassName("close")[0];-->
+
+<!--        // 点击按钮打开弹窗-->
+<!--        btn.onclick = function() {-->
+<!--            modal.style.display = "block";-->
+<!--        }-->
+
+<!--        // 点击 <span> (x), 关闭弹窗-->
+<!--        span.onclick = function() {-->
+<!--            modal.style.display = "none";-->
+<!--        }-->
+
+<!--        // 在用户点击其他地方时，关闭弹窗-->
+<!--        window.onclick = function(event) {-->
+<!--            if (event.target == modal) {-->
+<!--                modal.style.display = "none";-->
+<!--            }-->
+<!--        }-->
+<!--        function uploadWindow(attrId,productId,index){-->
+
+<!--            var html = "<div class='upload-item mb-30'><form id='upload' action='/tempname/updateheadimg' method='post' enctype='multipart/form-data'>"-->
+<!--                html += "<input type='hidden' value='"+attrId+"' name='productAttrId'>";-->
+<!--                html += "<input type='hidden' value='"+productId+"' name='productId'>";-->
+<!--                html += "选择图片：<input class='file' type='file' id='file' name='productPic'>";-->
+<!--                html += "<a class='easyui-linkbutton l-btn l-btn-plain'   iconcls='icon-ok' href='#'>";-->
+<!--                html += "<span>";-->
+<!--                html += "<button type='submit'><span class='l-btn-text icon-ok' onclick='upload("+index+")' style='padding-left: 20px;'>上传</span></button>></span></a>";-->
+<!--                html += "</form></div>";-->
+<!--            var msgw,msgh,bordercolor;-->
+<!--            msgw=400;//提示窗口的宽度-->
+<!--            msgh=400;//提示窗口的高度-->
+<!--            titleheight=1 //提示窗口标题高度-->
+<!--            bordercolor="#99BBE8";//提示窗口的边框颜色-->
+<!--            titlecolor="#c51100";//提示窗口的标题颜色-->
+
+<!--            var sWidth,sHeight;-->
+<!--            sWidth=screen.width;-->
+<!--            sHeight=screen.height;-->
+<!--            var bgObj=document.createElement("div");-->
+<!--            bgObj.setAttribute('id','bgDiv');-->
+<!--            bgObj.style.position="absolute";-->
+<!--            bgObj.style.top="0";-->
+<!--            bgObj.style.left="0";-->
+<!--            bgObj.style.width=sWidth + "px";-->
+<!--            bgObj.style.height=sHeight + "px";-->
+<!--            bgObj.style.zIndex = "10000";-->
+<!--            document.body.appendChild(bgObj);-->
+
+<!--            var msgObj=document.createElement("div")-->
+<!--            msgObj.setAttribute("id","msgDiv");-->
+<!--            msgObj.setAttribute("align","center");-->
+<!--            msgObj.style.background="white";-->
+<!--            msgObj.style.border="1px solid " + bordercolor;-->
+<!--            msgObj.style.position = "absolute";-->
+<!--            msgObj.style.left = "50%";-->
+<!--            msgObj.style.top = "30%";-->
+<!--            msgObj.style.font="12px/1.6em Verdana, Geneva, Arial, Helvetica, sans-serif";-->
+<!--            msgObj.style.marginLeft = "-225px" ;-->
+<!--            msgObj.style.marginTop = -75+document.documentElement.scrollTop+"px";-->
+<!--            msgObj.style.width = msgw + "px";-->
+<!--            msgObj.style.height =msgh + "px";-->
+<!--            msgObj.style.textAlign = "center";-->
+<!--            msgObj.style.lineHeight ="25px";-->
+<!--            msgObj.style.zIndex = "10001";-->
+
+
+<!--            var title=document.createElement("h4");-->
+<!--            title.setAttribute("id","msgTitle");-->
+<!--            title.setAttribute("align","right");-->
+<!--            title.style.margin="0";-->
+<!--            title.style.padding="3px";-->
+<!--            title.style.background=bordercolor;-->
+<!--            title.style.border="1px solid " + bordercolor;-->
+<!--            title.style.height="18px";-->
+<!--            title.style.font="12px Verdana, Geneva, Arial, Helvetica, sans-serif";-->
+<!--            title.style.color="white";-->
+<!--            title.style.cursor="pointer";-->
+<!--            title.innerHTML="关闭";-->
+<!--            title.onclick=function(){-->
+<!--            document.body.removeChild(bgObj);-->
+<!--            document.getElementById("msgDiv").removeChild(title);-->
+<!--            document.body.removeChild(msgObj);-->
+<!--            }-->
+<!--            document.body.appendChild(msgObj);-->
+<!--            document.getElementById("msgDiv").appendChild(title);-->
+<!--            var txt=document.createElement("p");-->
+<!--            txt.style.margin="1em 0"-->
+<!--            txt.setAttribute("id","msgTxt");-->
+<!--            txt.innerHTML=html;-->
+<!--            document.getElementById("msgDiv").appendChild(txt);-->
+
+<!--        }-->
+    <!--    </script>    }-->
+
+    <!-- site title -->
+    <title>我 的 主 页 </title>
+</head>
+
+<body>
+    <!-- preloader start here -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- preloader ending here -->
+
+    <!-- ===============// header section start here \\================= -->
+    <th:block th:include="common.html :: headers"></th:block>
+    <!-- ===============//header section end here \\================= -->
+
+    <!-- ==========Profile Section Start Here========== -->
+    <section class="profile-section padding-top padding-bottom" style="margin-top:-120px">
+        <div class="container">
+            <div class="section-wrapper">
+                <div class="member-profile">
+                    <!-- ==========Profile-item Section Start Here========== -->
+                    <div class="profile-item">
+                        <div class="profile-cover">
+                            <img src="/assets/images/profile/cover.jpg" alt="cover-pic">
+<!--                            wo xie de -->
+                            <!-- 弹窗内容 -->
+                            <div id="myModal" class="modal">
+                                <div class="account-wrapper" style="width:30%;">
+                                    <h3 class="title">头 像 上 传</h3>
+                                    <form class="account-form" action="/user/updateheadimage" method="post" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <a class="file">
+                                                <input value="文件上传" type="file" name="headimage" id="headimage" required/></input>
+                                            </a>
+                                        </div>
+                                        <div class="form-group">
+                                            <button class="d-block default-btn move-top" type="submit"><span>确认上传</span></button>
+                                        </div>
+                                    </form>
+                                    <div class="account-bottom">
+                                        <a href=""><span class="or" onmouseover="openWindow()" id="b">X</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="myWallet" class="modal">
+                                <div class="account-wrapper" style="width:30%;">
+                                    <h3 class="title">头 像 上 传</h3>
+                                    <!--          这里的接口还没写          -->
+                                    <form class="account-form" action="#" method="post">
+                                        <div class="form-group">
+                                            <a class="file">
+                                                <input value="文件上传" type="file" required/></input>
+                                            </a>
+                                        </div>
+                                        <div class="form-group">
+                                            <button class="d-block default-btn move-top" type="submit"><span>确认上传</span></button>
+                                        </div>
+                                    </form>
+                                    <div class="account-bottom">
+                                        <a href=""><span class="or" onmouseover="openWindow()" id="c">X</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-information">
+                            <div class="profile-pic">
+                                <img th:src="'http://localhost:80/image/headImage/' + ${session.user.getHeadImage()}" alt="DP">
+                                <button id="myBtn" onmouseover="openWindow()">
+                                    <div class="edit-photo custom-upload">
+                                        <div class="file-btn"><i class="icofont-camera"></i>
+                                            更换我的头像</div>
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="profile-name">
+                                <h4 ><a href="javascript:openWindowWallet();" id="myBtnWallet"><span th:text="${session.user.getUserName()}"></span> </a></h4>
+                                <p ><span th:text="${session.user.getCreateTime()}"></span></p>
+                            </div>
+                            <ul class="profile-contact">
+                                <li class="crypto-copy">
+                                    <div id="cryptoCode" class="crypto-page">
+<!--                                        <input id="cryptoLink" value="0x731F9FBF4163D47B0F581DD9EC45C9" readonly>-->
+                                        <input id="cryptoLink" th:value="${session.user.getMoneryAdd()}"  readonly>
+                                        <div id="cryptoCopy" data-bs-toggle="tooltip" data-bs-placement="top"
+                                             title="Copy Address">
+                                            <span class="copy-icon">
+                                                <i class="icofont-ui-copy" aria-hidden="true"
+                                                   data-copytarget="#cryptoLink"></i>
+                                            </span>
+
+                                        </div>
+                                    </div>
+
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <nav class="profile-nav">
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist" style="border">
+                                <button class="nav-link active" id="nav-allNft-tab" data-bs-toggle="tab"
+                                        data-bs-target="#allNft" type="button" role="tab" aria-controls="allNft"
+                                        aria-selected="true">我的收藏</button>
+                                <button class="nav-link" id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#about"
+                                        type="button" role="tab" aria-controls="about" aria-selected="false">我的NFTs</button>
+                                <a href="/tempname/uploadfile">
+                                <button class="nav-link" id="nav-activity-tab" data-bs-toggle="tab"
+                                        data-bs-target="#activity" type="button" role="tab" aria-controls="activity"
+                                        aria-selected="false">作品上传</button>
+                                </a>
+                                <button class="nav-link" id="nav-following-tab" data-bs-toggle="tab"
+                                        data-bs-target="#following" type="button" role="tab" aria-controls="following"
+                                        aria-selected="false">我的记录</button>
+                                <button class="nav-link" id="nav-auction-tab" data-bs-toggle="tab"
+                                        data-bs-target="#auction" type="button" role="tab" aria-controls="auction"
+                                        aria-selected="false">我的竞拍</button>
+                                <a href="javascript:openWindowWallet();">
+                                    <button class="nav-link" type="button">
+                                        账号充值
+                                    </button>
+                                </a>
+                            </div>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                            <!-- My NFT tab -->
+                            <div class="tab-pane activity-page fade show active" id="allNft" role="tabpanel">
+                                <div>
+                                    <div class="row">
+                                        <div class="col-xl-9">
+                                            <article>
+                                                <div class="activity-tab">
+
+                                                    <div class="tab-content activity-content" id="pills-tabContent2">
+                                                        <div class="tab-pane fade mentions-section show active onsale-loadmore"
+                                                             id="pills-mentions2" role="tabpanel"
+                                                             aria-labelledby="pills-mentions-tab">
+
+                                                            <div class="row justify-content-center g-4">
+                                                                <div class="col-lg-4 col-sm-6" th:each="cart:${carList}">
+                                                                    <div class="nft-item">
+                                                                        <div class="nft-inner">
+                                                                            <!-- nft top part -->
+                                                                            <div
+                                                                                    class="nft-item-top d-flex justify-content-between align-items-center">
+                                                                                <div class="author-part">
+                                                                                    <ul class="author-list d-flex">
+                                                                                        <li class="single-author">
+                                                                                            <a href="author.html"><img
+                                                                                                    src="/assets/images/seller/collector-1.png"
+                                                                                                    alt="author-img"></a>
+                                                                                        </li>
+                                                                                        <li class="single-author d-flex align-items-center">
+                                                                                            <h6>
+                                                                                                <a href="author.html" th:text="${cart.getCmdName()}" style="margin-left:50px">商品</a>
+                                                                                            </h6>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                                <div class="more-part">
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- nft-bottom part -->
+                                                                            <div class="nft-item-bottom">
+                                                                                <div class="nft-thumb">
+                                                                                    <a th:href="'/product/detail/'+${cart.getCommodityId()}">
+                                                                                        <img  th:src="'http://localhost:80/image/checkImage/'+ ${cart.getCmdImages()}" />
+                                                                                    </a>
+                                                                                    <!-- nft countdwon -->
+<!--                                                                                    <span-->
+<!--                                                                                            class="badge rounded-pill position-absolute"><i-->
+<!--                                                                                            class="icofont-heart"></i>-->
+<!--                                                                                        1.3k</span>-->
+                                                                                </div>
+                                                                                <div class="nft-content">
+                                                                                    <div class="content-title">
+                                                                                        <h5><a href="item-details.html">Walking
+                                                                                            On
+                                                                                            Air</a> </h5>
+                                                                                    </div>
+
+<!--                                                                                    <div-->
+<!--                                                                                            class="nft-status d-flex flex-wrap justify-content-between align-items-center ">-->
+<!--                                                                                        <span class="nft-view"><a-->
+<!--                                                                                                href="#"><i-->
+<!--                                                                                                class="icofont-eye-alt"></i>-->
+<!--                                                                                                创造时间:</a> </span>-->
+<!--                                                                                        <div class="nft-stock">-->
+<!--                                                                                                    <span th:text="${cart.CreateTime()}">-->
+<!--                                                                                                    </span>-->
+<!--                                                                                        </div>-->
+<!--                                                                                    </div>-->
+                                                                                    <div
+                                                                                            class="price-like d-flex justify-content-between align-items-center">
+                                                                                        <div
+                                                                                                class="nft-price d-flex align-items-center">
+                                                                                            <span class="currency-img">
+                                                                                                <img src="/assets/images/currency/currency-1.png"
+                                                                                                     alt="currency img">
+                                                                                            </span>
+                                                                                            <p ><span th:text="${cart.getCmdPrice()}"></span> ETH
+                                                                                            </p>
+                                                                                        </div>
+
+                                                                                        <!--
+                                                                                        <a href="javascript:void(0);"
+                                                                                       th:onclick="'removeCart(' + ${cart.getCommodityId()} + ');'" class="delete" style="color:black">X</a>                                                                                    <a th:href="/settlement2.html" class="nft-bid">购买</a>-->
+                                                                                        <a href="javascript:void(0);"
+                                                                                           th:onclick="'removeCart(' + ${cart.getCommodityId()} + ');'" class="nft-bid" >删除</a>
+                                                                                        <a href="/settlement2.html" class="nft-bid">购买</a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </article>
+                                        </div>
+
+                                        <!-- Aside Part -->
+                                        <th:block th:include="common.html :: aside"></th:block>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- My collection tab -->
+                            <div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="nav-about-tab">
+                                <div>
+                                    <div class="row">
+                                        <div class="col-xl-9">
+                                            <article>
+                                                <div class="activity-tab">
+                                                    <div class="tab-content activity-content" id="pills-tabContent">
+                                                        <div class="tab-pane fade mentions-section show active onsale-loadmore" id="pills-mentions" role="tabpanel" aria-labelledby="pills-mentions-tab">
+                                                            <div class="row justify-content-center g-4">
+                                                                <div class="col-lg-4 col-sm-6" th:each="pro:${product}">
+                                                                    <div class="nft-item">
+                                                                        <div class="nft-inner">
+                                                                            <!-- nft top part -->
+                                                                            <div
+                                                                                    class="nft-item-top d-flex justify-content-between align-items-center">
+                                                                                <div class="author-part">
+                                                                                    <ul class="author-list d-flex">
+                                                                                        <li class="single-author">
+                                                                                            <a href="author.html"><img
+                                                                                                    src="/assets/images/seller/collector-1.png"
+                                                                                                    alt="author-img"></a>
+                                                                                        </li>
+                                                                                        <li class="single-author d-flex align-items-center">
+                                                                                            <h6>
+                                                                                                <a href="author.html" th:text="${pro.getCommodityName()}" style="margin-left:50px">商品</a>
+                                                                                            </h6>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- nft-bottom part -->
+                                                                            <div class="nft-item-bottom">
+                                                                                <div class="nft-thumb">
+                                                                                    <a th:href="'/product/detail/'+${pro.getId()}">
+                                                                                        <img  th:src="'http://localhost:80/image/checkImage//' + ${pro.getImages()}" />
+                                                                                        <!-- nft countdwon -->
+                                                                                    </a>
+<!--                                                                                    <span-->
+<!--                                                                                            class="badge rounded-pill position-absolute"><i-->
+<!--                                                                                            class="icofont-heart"></i>-->
+<!--                                                                                        1.3k</span>-->
+                                                                                </div>
+                                                                                <div class="nft-content">
+                                                                                    <div class="content-title">
+                                                                                        <h5><a href="item-details.html">Walking
+                                                                                            On
+                                                                                            Air</a> </h5>
+                                                                                    </div>
+
+                                                                                    <div
+                                                                                            class="nft-status d-flex flex-wrap justify-content-between align-items-center ">
+                                                                                        <span class="nft-view"><a
+                                                                                                href="#"><i
+                                                                                                class="icofont-eye-alt"></i>
+                                                                                                创造时间:</a> </span>
+                                                                                        <div class="nft-stock">
+                                                                                                    <span th:text="${pro.getCreateTime()}">
+                                                                                                    </span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                            class="price-like d-flex justify-content-between align-items-center">
+                                                                                        <div
+                                                                                                class="nft-price d-flex align-items-center">
+                                                                                            <span class="currency-img">
+                                                                                                <img src="/assets/images/currency/currency-1.png"
+                                                                                                     alt="currency img">
+                                                                                            </span>
+                                                                                            <p ><span th:text="${pro.getCommodityPrice()}"></span> ETH
+                                                                                            </p>
+                                                                                        </div>
+                                                                                        <a th:href="'/product/toauction/'+${pro.getId()}"
+                                                                                           class="nft-bid">竞价</a>
+                                                                                        <a href="#"
+                                                                                           class="nft-bid">出售</a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+
+                                        <!-- Aside Part -->
+                                        <th:block th:include="common.html :: aside"></th:block>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- My record Tab -->
+                            <div class="tab-pane fade" id="following" role="tabpanel"
+                                 aria-labelledby="nav-following-tab">
+                                <div>
+                                    <div class="row">
+                                        <div class="col-xl-9">
+                                            <article>
+                                                <h4 class="h4-title">我的所有交易记录</h4>
+                                                <div class="row gy-3" th:each="orderList:${orderList}">
+                                                    <div class="col-12">
+                                                        <div class="activity-item">
+                                                            <div
+                                                                    class="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
+                                                                <div class="lab-thumb me-3 me-md-4">
+                                                                    <img th:src="'http://localhost:80/image/checkImage/'+ ${orderList.getCommodityImages()}" alt="img" style="width:150px">
+                                                                </div>
+                                                                <div class="lab-content">
+
+                                                                    <h4>
+                                                                        <a>商品:</a>
+                                                                        <a  th:text="${orderList.getCommodityName()}"></a>
+                                                                    </h4>
+
+                                                                    <p class="mb-2" >
+                                                                        <b>商品详情:</b>
+                                                                        <b th:text="${orderList.getCommodityInfo()}"></b>
+                                                                    </p>
+                                                                    <p>
+                                                                        <b>价格:</b>
+                                                                        <a th:text="${orderList.getCommodityPrice()}"></a>
+                                                                        <b >
+                                                                            ETH</b>
+                                                                    </p>
+                                                                    <p th:text="${orderList.getCreatTime()}">
+                                                                        <b >交易时间</b>
+                                                                        <a th:text="${orderList.getCreatTime()}"> </a>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+
+                                        <!-- Aside Part -->
+                                        <th:block th:include="common.html :: aside"></th:block>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- My auction Tab -->
+                            <div class="tab-pane fade" id="auction" role="tabpanel" aria-labelledby="nav-about-tab">
+                                <div>
+                                    <div class="row">
+                                        <div class="col-xl-9">
+                                            <article>
+                                                <div class="activity-tab">
+                                                    <div class="tab-content activity-content" id="pills-tabContent3">
+                                                        <div class="tab-pane fade mentions-section show active onsale-loadmore" id="pills-mentions3" role="tabpanel" aria-labelledby="pills-mentions-tab">
+                                                            <div class="row justify-content-center g-4">
+                                                                <div class="col-lg-4 col-sm-6" th:each="auction:${auction}">
+                                                                    <div class="nft-item">
+                                                                        <div class="nft-inner">
+                                                                            <!-- nft top part -->
+                                                                            <div
+                                                                                    class="nft-item-top d-flex justify-content-between align-items-center">
+                                                                                <div class="author-part">
+                                                                                    <ul class="author-list d-flex">
+                                                                                        <li class="single-author">
+                                                                                            <a href="author.html"><img
+                                                                                                    src="/assets/images/seller/collector-1.png"
+                                                                                                    alt="author-img"></a>
+                                                                                        </li>
+                                                                                        <li class="single-author d-flex align-items-center">
+                                                                                            <h6>
+                                                                                                <a href="author.html" th:text="${auction.getCommodityName()}" style="margin-left:50px">商品</a>
+                                                                                            </h6>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- nft-bottom part -->
+                                                                            <div class="nft-item-bottom">
+                                                                                <div class="nft-thumb">
+                                                                                    <a th:href="'/product/detail/'+${auction.getId()}">
+                                                                                        <img  th:src="'http://localhost:80/image/checkImage/' + ${auction.getImages()}" />
+                                                                                        <!-- nft countdwon -->
+                                                                                    </a>
+                                                                                    <!--                                                                                    <span-->
+                                                                                    <!--                                                                                            class="badge rounded-pill position-absolute"><i-->
+                                                                                    <!--                                                                                            class="icofont-heart"></i>-->
+                                                                                    <!--                                                                                        1.3k</span>-->
+                                                                                </div>
+                                                                                <div class="nft-content">
+                                                                                    <div class="content-title">
+
+                                                                                    </div>
+
+                                                                                    <div
+                                                                                            class="nft-status d-flex flex-wrap justify-content-between align-items-center ">
+                                                                                        <span class="nft-view"><a
+                                                                                                href="#"><i
+                                                                                                class="icofont-eye-alt"></i>
+                                                                                                出价时间:</a> </span>
+                                                                                        <div class="nft-stock">
+                                                                                                    <span th:text="${auction.getCreateTime()}">
+                                                                                                    </span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                            class="price-like d-flex justify-content-between align-items-center">
+                                                                                        <div
+                                                                                                class="nft-price d-flex align-items-center">
+                                                                                            <span class="currency-img">
+                                                                                                <img src="/assets/images/currency/currency-1.png"
+                                                                                                     alt="currency img">
+                                                                                            </span>
+                                                                                            <p ><span th:text="${auction.getCommodityPrice()}"></span> ETH
+                                                                                            </p>
+                                                                                        </div>
+                                                                                        <a th:href="'/product/auction/'+${auction.getId()}+'/'"
+                                                                                           class="nft-bid">继续加价</a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+
+                                        <!-- Aside Part -->
+                                        <th:block th:include="common.html :: aside"></th:block>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ==========Profile Section Ends Here========== -->
+
+
+    <!-- ===============//footer section start here \\================= -->
+    <th:block th:include="common.html :: footers"></th:block>
+    <!-- ===============//footer section end here \\================= -->
+    <!-- ===============//弹窗 \\================= -->
+    <style>
+                .file1 {
+            position: relative;
+            display: inline-block;
+            background: #D0EEFF;
+            border: 1px solid #99D3F5;
+            border-radius: 4px;
+            padding: 4px 12px;
+            overflow: hidden;
+            color: #1E88C7;
+            text-decoration: none;
+            text-indent: 0;
+            line-height: 20px;
+        }
+        .file1 input {
+            position: absolute;
+            font-size: 100px;
+            right: 0;
+            top: 0;
+            opacity: 0;
+        }
+        .file1:hover {
+            background: #AADFFD;
+            border-color: #78C3F3;
+            color: #004974;
+            text-decoration: none;
+        }
+      /* 弹窗 (background) */
+        .modal {
+        display: none; /* 默认隐藏 */
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+        }
+
+        /* 弹窗内容 */
+        .modal-content {
+        position: relative;
+        background-color: #fefefe;
+        margin: auto;
+        padding: 0;
+        border: 1px solid #888;
+        width: 80%;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        -webkit-animation-name: animatetop;
+        -webkit-animation-duration: 0.4s;
+        animation-name: animatetop;
+        animation-duration: 0.4s
+        }
+
+        /* 添加动画 */
+        @-webkit-keyframes animatetop {
+        from {top:-300px; opacity:0}
+        to {top:0; opacity:1}
+        }
+
+        @keyframes animatetop {
+        from {top:-300px; opacity:0}
+        to {top:0; opacity:1}
+        }
+
+        /* 关闭按钮 */
+        .close {
+        color: white;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+        }
+
+        .modal-header {
+        padding: 2px 16px;
+        background-color: #5cb85c;
+        color: white;
+        }
+
+        .modal-body {padding: 2px 16px;}
+
+        .modal-footer {
+        padding: 2px 16px;
+        background-color: #5cb85c;
+        color: white;
+        }
+    </style>
+    <script>
+    function openWindow(){
+        // 获取弹窗
+        var modal = document.getElementById('myModal');
+
+        // 打开弹窗的按钮对象
+        var btn = document.getElementById("myBtn");
+
+        // 获取 <span> 元素，用于关闭弹窗 that closes the modal
+        var span = document.getElementsByClassName("close");
+        var span1 = document.getElementById("c");
+
+        // 点击按钮打开弹窗
+        btn.onclick = function() {
+        modal.style.display = "block";
+        }
+
+        // 点击 <span> (x), 关闭弹窗
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        // 点击 <span> (x), 关闭弹窗
+        span1.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // 在用户点击其他地方时，关闭弹窗
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        }
+    }
+    function openWindowWallet(){
+        // 获取弹窗
+        var modal = document.getElementById('myWallet');
+
+        // 打开弹窗的按钮对象
+        var btn = document.getElementById("myBtnWallet");
+
+        // 获取 <span> 元素，用于关闭弹窗 that closes the modal
+        var span = document.getElementsByClassName("close");
+        var span1 = document.getElementById("b");
+
+        // 点击按钮打开弹窗
+        modal.style.display = "block";
+
+        // 点击 <span> (x), 关闭弹窗
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        // 点击 <span> (x), 关闭弹窗
+        span1.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // 在用户点击其他地方时，关闭弹窗
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        }
+    }
+</script>
+
+
+
+
+
+
+    <!-- All Scripts -->
+    <script src="/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/waypoints.min.js"></script>
+    <script src="/assets/js/swiper-bundle.min.js"></script>
+    <script src="/assets/js/countdown.min.js"></script>
+    <script src="/assets/js/jquery.counterup.min.js"></script>
+    <script src="/assets/js/wow.min.js"></script>
+    <script src="/assets/js/jquery.simpleLoadMore.min.js"></script>
+    <script src="/assets/js/isotope.pkgd.min.js"></script>
+    <script src="/assets/js/functions.js"></script>
+</body>
+
+</html>

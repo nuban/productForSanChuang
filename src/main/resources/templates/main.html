@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="author" content="Labartisan">
+    <meta name="description"
+        content="Anftiz is a full-fledged NFT or Digital assets marketplace HTML template. It is suitable for selling NFTs, or non-fungible tokens, Digital Arts, Digital Music & All types of Digital Assets. You can create, sell & collect NFT’s or digital assets through this website.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Meta tags for Social Media(Better SEO) -->
+    <!-- <meta property="og:title" content=""> -->
+    <!-- <meta property="og:type" content=""> -->
+    <!-- <meta property="og:url" content=""> -->
+    <!-- <meta property="og:image" content=""> -->
+    <script type="text/javascript">
+        function openwin() {
+    　         　window.open ("../window.html", "newwindow", "height=400, width=400, toolbar =no, menubar=no,scrollbars=no, resizable=no, location=no, status=no,top=30%,left=50%") //写成一行
+    　　}
+        function openwin1()
+    　　{
+                　　OpenWindow=window.open("", "newwin", "height=250, width=250,toolbar=no ,scrollbars="+scroll+",menubar=no");
+                　　//写成一行
+                　　OpenWindow.document.write("<TITLE>例子</TITLE>")
+                　　OpenWindow.document.write("<BODY BGCOLOR=#ffffff>")
+                　　OpenWindow.document.write("<h1>Hello!</h1>")
+                　　OpenWindow.document.write("New window opened!")
+                　　OpenWindow.document.write("</BODY>")
+                　　OpenWindow.document.write("</HTML>")
+                　　OpenWindow.document.close()
+    　　}
+    </script>
+    <!-- site favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+
+    <!-- ====== All css file ========= -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css//icofont.min.css">
+    <link rel="stylesheet" href="/assets/css/animate.css">
+    <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <!-- site title -->
+    <title>NFTs 商城</title>
+</head>
+
+<body class="home-1">
+    <!-- preloader start here -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- preloader ending here -->
+
+
+
+    <!-- ===============// header section start here \\================= -->
+    
+<th:block th:include="common.html :: headers"></th:block>
+    
+    <!-- ===============//header section end here \\================= -->
+
+
+    <!-- ===============//banner section start here \\================= -->
+<th:block th:include="common.html :: banner"></th:block>
+    <!-- ===============>> banner section end here <<================= -->
+
+
+
+    <!-- ===============>>Catergory section start here <<================= -->
+<th:block th:include="common.html :: catergory"></th:block>
+    <!-- ===============>>Catergory section end here <<================= -->
+<th:block th:include="common.html :: auction"></th:block>
+    <!-- ===============//seller section start here \\================= -->
+    <!-- ===============//seller section end here \\================= -->
+<th:block th:include="common.html :: auction1"></th:block>
+
+
+    <!-- ===============>> Artwork section start here <<================= -->
+
+    <!-- ===============>> Artwork section end here <<================= -->
+
+
+
+
+    <!-- ===============//collection section start here \\================= -->
+    <section class="collection-section padding-top padding-bottom">
+        <div class="container">
+<!--            <div class="section-header">-->
+<!--                <h3 class="header-title">NFT收藏排名</h3>-->
+<!--                <div class="header-content"><a href="collections.html"-->
+<!--                        class="default-btn style-2 small-btn move-right" style="width:150px"><span>查看所有-->
+<!--                            <i class="icofont-circled-right"></i></span></a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="section-wrapper">-->
+<!--                <div class="collection-wrapper">-->
+<!--                    <div class="row justify-content-center g-4">-->
+<!--                        <div class="col-lg-4 col-md-6">-->
+<!--                            <div class="nft-item collection-item">-->
+<!--                                <div class="nft-inner">-->
+<!--                                    <div class="coll-thumb-wrapper">-->
+<!--                                        <div class="nft-coll-thumb ">-->
+<!--                                            <div class="thumb-list swiper-wrapper">-->
+<!--                                                <div class="swiper-slide">-->
+<!--                                                    <div class="single-thumb"><img-->
+<!--                                                            src="/assets/images/nft-item/category/01.gif"-->
+<!--                                                            alt="cat-image">-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="swiper-slide">-->
+<!--                                                    <div class="single-thumb"><img-->
+<!--                                                            src="/assets/images/nft-item/category/02.gif"-->
+<!--                                                            alt="cat-image">-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="swiper-slide">-->
+<!--                                                    <div class="single-thumb"><img-->
+<!--                                                            src="/assets/images/nft-item/category/03.gif"-->
+<!--                                                            alt="cat-image">-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+<!--                                    <div class="nft-content">-->
+<!--                                        <div class="collection-title">-->
+<!--                                            <h5><a href="collection-single.html">动 画 怪 物</a> </h5>-->
+<!--                                            <p>收 藏 有 13 项</p>-->
+<!--                                        </div>-->
+
+<!--                                        <div-->
+<!--                                            class="author-details d-flex flex-wrap justify-content-between align-items-center">-->
+<!--                                            <div class="single-author d-flex align-items-center">-->
+<!--                                                <a href="author.html" class="veryfied"><img-->
+<!--                                                        src="/assets/images/seller/collector-4.gif" alt="author-img"></a>-->
+<!--                                                <h6><a href="author.html">拉 塞 尔 姆 </a></h6>-->
+<!--                                            </div>-->
+<!--                                            <span class="badge rounded-pill"><i class="icofont-heart"></i>-->
+<!--                                                11.3k</span>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-lg-4 col-md-6">-->
+<!--                            <div class="nft-item collection-item">-->
+<!--                                <div class="nft-inner">-->
+<!--                                    <div class="coll-thumb-wrapper">-->
+<!--                                        <div class="nft-coll-thumb ">-->
+<!--                                            <div class="thumb-list swiper-wrapper">-->
+<!--                                                <div class="swiper-slide">-->
+<!--                                                    <div class="single-thumb"><img-->
+<!--                                                            src="/assets/images/nft-item/category/01.gif"-->
+<!--                                                            alt="cat-image">-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="swiper-slide">-->
+<!--                                                    <div class="single-thumb"><img-->
+<!--                                                            src="/assets/images/nft-item/category/02.gif"-->
+<!--                                                            alt="cat-image">-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="swiper-slide">-->
+<!--                                                    <div class="single-thumb"><img-->
+<!--                                                            src="/assets/images/nft-item/category/03.gif"-->
+<!--                                                            alt="cat-image">-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+<!--                                    <div class="nft-content">-->
+<!--                                        <div class="collection-title">-->
+<!--                                            <h5><a href="collection-single.html">动 画 怪 物</a> </h5>-->
+<!--                                            <p>收 藏 有 13 项</p>-->
+<!--                                        </div>-->
+
+<!--                                        <div-->
+<!--                                                class="author-details d-flex flex-wrap justify-content-between align-items-center">-->
+<!--                                            <div class="single-author d-flex align-items-center">-->
+<!--                                                <a href="author.html" class="veryfied"><img-->
+<!--                                                        src="/assets/images/seller/collector-4.gif" alt="author-img"></a>-->
+<!--                                                <h6><a href="author.html">拉 塞 尔 姆 </a></h6>-->
+<!--                                            </div>-->
+<!--                                            <span class="badge rounded-pill"><i class="icofont-heart"></i>-->
+<!--                                                11.3k</span>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-lg-4 col-md-6">-->
+<!--                            <div class="nft-item collection-item">-->
+<!--                                <div class="nft-inner">-->
+<!--                                    <div class="coll-thumb-wrapper">-->
+<!--                                        <div class="nft-coll-thumb ">-->
+<!--                                            <div class="thumb-list swiper-wrapper">-->
+<!--                                                <div class="swiper-slide">-->
+<!--                                                    <div class="single-thumb"><img-->
+<!--                                                            src="/assets/images/nft-item/category/01.gif"-->
+<!--                                                            alt="cat-image">-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="swiper-slide">-->
+<!--                                                    <div class="single-thumb"><img-->
+<!--                                                            src="/assets/images/nft-item/category/02.gif"-->
+<!--                                                            alt="cat-image">-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="swiper-slide">-->
+<!--                                                    <div class="single-thumb"><img-->
+<!--                                                            src="/assets/images/nft-item/category/03.gif"-->
+<!--                                                            alt="cat-image">-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+<!--                                    <div class="nft-content">-->
+<!--                                        <div class="collection-title">-->
+<!--                                            <h5><a href="collection-single.html">动 画 怪 物</a> </h5>-->
+<!--                                            <p>收 藏 有 13 项</p>-->
+<!--                                        </div>-->
+
+<!--                                        <div-->
+<!--                                                class="author-details d-flex flex-wrap justify-content-between align-items-center">-->
+<!--                                            <div class="single-author d-flex align-items-center">-->
+<!--                                                <a href="author.html" class="veryfied"><img-->
+<!--                                                        src="/assets/images/seller/collector-4.gif" alt="author-img"></a>-->
+<!--                                                <h6><a href="author.html">拉 塞 尔 姆 </a></h6>-->
+<!--                                            </div>-->
+<!--                                            <span class="badge rounded-pill"><i class="icofont-heart"></i>-->
+<!--                                                11.3k</span>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </section>
+    <!-- ===============//Collection section end here \\================= -->
+
+
+
+    <!-- ===============//nft-sell section start here \\================= -->
+   <!-- <section class="process-section padding-bottom">
+        <div class="container">
+            <div class="section-header justify-content-center">
+                <div class="header-title">
+                    <h3>Get Started Creating And Selling Your NFTs</h3>
+                </div>
+            </div>
+            <div class="section-wrapper">
+                <div class="nft-sell-wrapper">
+                    <div class="row justify-content-center g-4">
+                        <div class="col-md-6">
+                            <div class="nft-item style-3">
+                                <div class="nft-inner text-center">
+                                    <div class="nft-thumb">
+                                        <img src="assets/images/nft-item/style-3/01.png" alt="nft-img">
+                                    </div>
+                                    <div class="nft-content">
+                                        <div class="author-details">
+                                            <h5>Set Up Your Wallet</h5>
+                                            <p>Once you've set up your wallet of choice, connect
+                                                it to NFTically by clicking the wallet icon in the top right corner.
+                                                Learn about the wallets we support.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="nft-item style-3">
+                                <div class="nft-inner text-center">
+                                    <div class="nft-thumb">
+                                        <img src="assets/images/nft-item/style-3/02.png" alt="nft-img">
+                                    </div>
+                                    <div class="nft-content">
+                                        <h5>Creat Your Collection</h5>
+                                        <p>Click Create and set up your collection.
+                                            Add social links, a description, profile & banner images,
+                                            and set a secondary sales fee.</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="nft-item style-3">
+                                <div class="nft-inner text-center">
+                                    <div class="nft-thumb">
+                                        <img src="assets/images/nft-item/style-3/03.png" alt="nft-img">
+                                    </div>
+                                    <div class="nft-content">
+                                        <div class="author-details">
+                                            <h5>Add Your NFTs</h5>
+                                            <p>Upload your work (image, video, audio, or 3D art),
+                                                add a title and description, and customize your NFTs with
+                                                properties, stats, and unlockable content.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="nft-item style-3">
+                                <div class="nft-inner text-center">
+                                    <div class="nft-thumb">
+                                        <img src="assets/images/nft-item/style-3/04.png" alt="nft-img">
+                                    </div>
+                                    <div class="nft-content">
+                                        <div class="author-details">
+                                            <h5>List Them For Sale</h5>
+                                            <p>Choose between auctions, fixed-price listings,
+                                                and declining-price listings. You choose how you want to sell
+                                                your NFTs, and we help you sell them!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- ===============//nft-sell section end here \\================= -->
+
+
+
+    <!-- ===============//blog section start here \\================= -->
+    <section class="blog-section pb-120">
+<!--        <div class="container">-->
+<!--            <div class="section-header">-->
+<!--                <h3 class="header-title"> 最 新 讯 息</h3>-->
+<!--                <div class="header-content"><a href="javascript:openwin1();"-->
+<!--                        class="default-btn style-2 small-btn move-right" style="width:150px"><span>查看所有-->
+<!--                            <i class="icofont-circled-right"></i></span></a> </div>-->
+<!--            </div>-->
+
+<!--            <div class="section-wrapper">-->
+<!--                <div class="blog-wrapper">-->
+<!--                    <div class="row justify-content-center g-4">-->
+<!--                        <div class="col-lg-4 col-sm-6">-->
+<!--                            <div class="nft-item blog-item">-->
+<!--                                <div class="nft-inner">-->
+<!--                                    <div class="nft-thumb">-->
+<!--                                        <img src="/assets/images/nft-item/blog/01.jpg" alt="blog-img">-->
+<!--                                    </div>-->
+<!--                                    <div class="nft-content">-->
+<!--                                        <div class="author-details">-->
+<!--                                            <h4><a href="blog-single.html">了 解 有 关 NFT 的 更 多 信 息</a> </h4>-->
+<!--                                            <div class="meta-info">-->
+<!--                                                <p><span><i class="icofont-ui-calendar"-->
+<!--                                                            data-blast="color"></i></span>2022年1月20日-->
+<!--                                                </p>-->
+<!--                                                <p><span><i class="icofont-user" data-blast="color"></i></span>Jhon doe-->
+<!--                                                </p>-->
+<!--                                            </div>-->
+<!--                                            <a href="blog-single.html"-->
+<!--                                                class="default-btn move-right small-btn"><span>更多</span> </a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-lg-4 col-sm-6">-->
+<!--                            <div class="nft-item blog-item">-->
+<!--                                <div class="nft-inner">-->
+<!--                                    <div class="nft-thumb">-->
+<!--                                        <img src="/assets/images/nft-item/blog/01.jpg" alt="blog-img">-->
+<!--                                    </div>-->
+<!--                                    <div class="nft-content">-->
+<!--                                        <div class="author-details">-->
+<!--                                            <h4><a href="blog-single.html">了 解 有 关 NFT 的 更 多 信 息</a> </h4>-->
+<!--                                            <div class="meta-info">-->
+<!--                                                <p><span><i class="icofont-ui-calendar"-->
+<!--                                                            data-blast="color"></i></span>2022年1月20日-->
+<!--                                                </p>-->
+<!--                                                <p><span><i class="icofont-user" data-blast="color"></i></span>Jhon doe-->
+<!--                                                </p>-->
+<!--                                            </div>-->
+<!--                                            <a href="blog-single.html"-->
+<!--                                               class="default-btn move-right small-btn"><span>更多</span> </a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-lg-4 col-sm-6">-->
+<!--                        <div class="nft-item blog-item">-->
+<!--                            <div class="nft-inner">-->
+<!--                                <div class="nft-thumb">-->
+<!--                                    <img src="/assets/images/nft-item/blog/01.jpg" alt="blog-img">-->
+<!--                                </div>-->
+<!--                                <div class="nft-content">-->
+<!--                                    <div class="author-details">-->
+<!--                                        <h4><a href="blog-single.html">了 解 有 关 NFT 的 更 多 信 息</a> </h4>-->
+<!--                                        <div class="meta-info">-->
+<!--                                            <p><span><i class="icofont-ui-calendar"-->
+<!--                                                        data-blast="color"></i></span>2022年1月20日-->
+<!--                                            </p>-->
+<!--                                            <p><span><i class="icofont-user" data-blast="color"></i></span>Jhon doe-->
+<!--                                            </p>-->
+<!--                                        </div>-->
+<!--                                        <a href="blog-single.html"-->
+<!--                                           class="default-btn move-right small-btn"><span>更多</span> </a>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+    </section>
+    <!-- ===============//blog section end here \\================= -->
+
+
+
+    <!-- ===============//footer section start here \\================= -->
+<th:block th:include="common.html :: footers"></th:block>
+    <!-- ===============//footer section end here \\================= -->
+
+
+
+    <!-- scrollToTop start here -->
+    <a href="#" class="scrollToTop"><i class="icofont-swoosh-up"></i></a>
+    <!-- scrollToTop ending here -->
+
+
+
+
+    <!-- All Scripts -->
+    <script src="/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/waypoints.min.js"></script>
+    <script src="/assets/js/swiper-bundle.min.js"></script>
+    <script src="/assets/js/countdown.min.js"></script>
+    <script src="/assets/js/jquery.counterup.min.js"></script>
+    <script src="/assets/js/wow.min.js"></script>
+    <script src="/assets/js/jquery.simpleLoadMore.min.js"></script>
+    <script src="/assets/js/isotope.pkgd.min.js"></script>
+    <script src="/assets/js/functions.js"></script>
+</body>
+
+</html>

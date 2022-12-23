@@ -1,0 +1,85 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:include="common.html :: source"></th:block>
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+
+    <!-- ====== All css file ========= -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css//icofont.min.css">
+    <link rel="stylesheet" href="/assets/css/animate.css">
+    <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="home-1">
+<!-- ===============// header section start here \\================= -->
+<th:block th:include="common.html :: headers"></th:block>
+<!-- ===============//header section end here \\================= -->
+<section class="page-header-section style-1" style="height:100px">
+    <div class="container" style="height:100px;margin-top:2.5%;">
+        <div class="page-header-content" style="margin-top:-5%">
+            <div class="page-header-inner">
+                <div class="page-title">
+                    <h2>支 付 成 功 </h2>
+                </div>
+                <ol class="breadcrumb">
+                    <li><a href="index.html">主 页</a></li>
+                    <li class="active">支 付 </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="explore-section explore-page padding-top padding-bottom">
+    <div class="i_bg" >
+        <div id="settlement" style="margin-left:15%">
+        <div class="content mar_20">
+            <div class="warning">
+                <table border="0" style="width:100%; text-align:center;" cellspacing="0" cellpadding="0">
+                    <tr height="35">
+                        <td style="font-size:18px;">
+                            您的订单已提交成功，请前往个人用户中心查看
+<!--                            请记住您的订单号: <font color="#ff4e00">1213123123132132</font>-->
+                        </td>
+                    </tr>
+                    <tr>
+<!--                        <td style="font-size:14px; font-family:'宋体'; padding:10px 0 20px 0; border-bottom:1px solid #b6b6b6;">-->
+<!--                                您选定的支付方式为: <font-->
+<!--                                color="#ff4e00">支付宝</font>；    您的应付款金额为: <font color="#ff4e00" >￥1000</font>-->
+<!--                        </td>-->
+                    </tr>
+                    <tr>
+<!--                        <td style="font-size:14px; font-family:'宋体';padding:20px 0 30px 0; font-family:'宋体';">-->
+<!--                            收款人信息：张三     地址：小寨-->
+<!--                        </td>-->
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="/" class="default-btn move-top">首页</a>     <a href="/product/myproduct" class="default-btn move-top">用户中心</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<th:block th:include="common.html :: footers"></th:block>
+<script src="/assets/js/jquery-3.6.0.min.js"></script>
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/waypoints.min.js"></script>
+<script src="/assets/js/swiper-bundle.min.js"></script>
+<script src="/assets/js/countdown.min.js"></script>
+<script src="/assets/js/jquery.counterup.min.js"></script>
+<script src="/assets/js/wow.min.js"></script>
+<script src="/assets/js/jquery.simpleLoadMore.min.js"></script>
+<script src="/assets/js/isotope.pkgd.min.js"></script>
+<script src="/assets/js/functions.js"></script>
+
+</body>
+</html>
