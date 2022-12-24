@@ -7,9 +7,12 @@ import com.blockchain.service.IOrderInfoService;
 import com.google.code.kaptcha.impl.DefaultKaptcha;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import static org.junit.jupiter.api.Assertions.*;
+@SpringBootTest
 
 class UserServiceImplTest {
 
@@ -33,6 +36,15 @@ class UserServiceImplTest {
     @Test
     void testPass (){
         System.out.println(new BCryptPasswordEncoder().encode("123456"));
+
+    }
+
+
+    @Value("${upload.path}")
+    private String path;
+    @Test
+    void testPasspro (){
+        System.out.println(path);
 
     }
 

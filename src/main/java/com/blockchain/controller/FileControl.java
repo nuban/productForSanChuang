@@ -4,6 +4,7 @@ package com.blockchain.controller;
 import com.blockchain.config.uploadfile.UploadTodist;
 import com.blockchain.pojo.ResBean;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,10 +17,12 @@ import java.util.Random;
 @RestController
 public class FileControl {
 
+    @Autowired
+    private UploadTodist uploadTodist;
+
     @ApiOperation("上传文件")
     @PostMapping("/fileupload")
     public ResBean uploadFile(@RequestBody MultipartFile file) {
-        UploadTodist uploadTodist = new UploadTodist();
         String upload = uploadTodist.upload(file);
          if(upload.equals("上传失败")){
             return ResBean.error("上传失败");

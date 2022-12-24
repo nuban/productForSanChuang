@@ -32,6 +32,9 @@ public class CommodityInfoServiceImpl extends ServiceImpl<CommodityInfoMapper, C
     @Autowired
     private IUserService iUserService;
     @Autowired
+    private UploadTodist uploadTodist;
+
+    @Autowired
     private ICommodityInfoService iCommodityInfoService;
     @Autowired
     private CommodityInfoMapper commodityInfoMapper;
@@ -93,7 +96,6 @@ public class CommodityInfoServiceImpl extends ServiceImpl<CommodityInfoMapper, C
 
     @Override
     public ResBean saveForm(MultipartFile multipartFile, String commodityName, String commodityInformation, String commodityPrice) {
-        UploadTodist uploadTodist = new UploadTodist();
         AddMark addMark = new AddMark();
         CommodityInfo commodityInfo = new CommodityInfo();
         String upload = uploadTodist.upload(multipartFile);

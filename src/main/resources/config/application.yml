@@ -37,3 +37,6 @@ jwt:
   expiration: 604800
   # JWT负载中拿到开头
   tokenHead: Bearer
+
+upload:
+  path: D:/上传图片/
