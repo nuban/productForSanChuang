@@ -15,6 +15,7 @@ import io.ipfs.api.MerkleNode;
 import io.ipfs.api.NamedStreamable;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
@@ -49,6 +50,9 @@ import java.util.List;
 @RequestMapping("/tempname")
 @Slf4j
 public class TempnameController {
+
+    @Value("${upload.path}")
+    public String path;
 
     @Autowired
     private TempnameMapper tempnameMapper;
@@ -94,12 +98,12 @@ public class TempnameController {
         String oldFileName = commodityImages.getOriginalFilename();
         // System.currentTimeMillis()  获取时间戳
         String newFileName = user.getUserName() + "_" + System.currentTimeMillis() + "." + oldFileName.substring(oldFileName.lastIndexOf(".")+1);
-        System.out.println(System.currentTimeMillis());
+//        System.out.println(System.currentTimeMillis());
         System.out.println(newFileName);
 //        String filePath = "D:\\java\\bcnft\\src\\\\main\\resources\\static\\images\\file\\";
-        String filePath = "E:\\wampserver\\www\\image\\UploadImage\\";
+//        String filePath = "E:\\wampserver\\www\\image\\UploadImage\\";
 
-        File dest = new File(filePath + newFileName);
+        File dest = new File(path + newFileName);
 
         if (!dest.getParentFile().exists()){
             dest.getParentFile().mkdirs();
@@ -110,17 +114,18 @@ public class TempnameController {
             e.printStackTrace();
         }
 
-        String testPath = "E:\\wampserver\\www\\image\\UploadImage\\" + newFileName;
-        boolean flag = FileRead.queryFile(filePath,testPath);
-        if(!flag){
-            System.out.println("----------*****----------------");
-            System.out.println("重复了");
-            System.out.println("---------******-----------------");
-            ModelAndView modelAndView = new ModelAndView();
-            modelAndView.setViewName("uploadFile");
-            modelAndView.addObject("checkData","1");
-            return modelAndView;
-        }
+        String testPath = path + newFileName;
+        boolean flag = FileRead.queryFile(path,testPath);
+        //图片检测
+//        if(!flag){
+//            System.out.println("----------*****----------------");
+//            System.out.println("重复了");
+//            System.out.println("---------******-----------------");
+//            ModelAndView modelAndView = new ModelAndView();
+//            modelAndView.setViewName("uploadFile");
+//            modelAndView.addObject("checkData","1");
+//            return modelAndView;
+//        }
 
         Tempname tempname = new Tempname();
         tempname.setCategory(commodityCategory);
@@ -308,7 +313,6 @@ public class TempnameController {
     }
     @PostMapping("updateheadimg")
     public ModelAndView updateheadimg(){
-        System.out.println("可以了");
         ModelAndView modelAndView = new ModelAndView();
         return modelAndView;
     }

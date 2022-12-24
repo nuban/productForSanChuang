@@ -268,7 +268,7 @@
                         <div class="profile-information">
                             <div class="profile-pic">
 <!--                                <img th:src="'/images/userhead/' + ${session.user.getHeadImage()}" alt="DP">-->
-                                <img th:src="'http://localhost:80/image/headImage/' + ${session.user.getHeadImage()}" alt="DP">
+                                <img th:src="'http://localhost:8080/image/checkImage?fileName=' + ${session.user.getHeadImage()}" alt="DP">
                                 <button id="myBtn" onmouseover="openWindow()">
                                     <div class="edit-photo custom-upload">
                                         <div class="file-btn"><i class="icofont-camera"></i>

@@ -20,3 +20,6 @@ mybatis-plus:
 
   mapper-locations: classpath:com/bc/mapper/xml/*.xml
   type-aliases-package: com.bc.entity
+
+upload:
+  path: D:/上传图片/

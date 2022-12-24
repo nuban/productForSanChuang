@@ -3,6 +3,7 @@ package com.bc.controller;
 
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import org.apache.tomcat.util.http.fileupload.FileUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,9 +17,17 @@ import java.io.FileInputStream;
 import java.io.OutputStream;
 import java.net.URLEncoder;
 
+
+/**
+ * 临时添加的图片查看
+ */
+
 @Controller
 @RequestMapping("/image")
 public class ImgController {
+
+    @Value("${upload.path}")
+    private String path;
 
     @RequestMapping("checkImage")
     public void getImg(String fileName , HttpServletResponse response){
@@ -26,7 +35,7 @@ public class ImgController {
         try {
 
             // 得到要下载的文件
-            File file = new File("D:\\上传图片\\" + fileName);
+            File file = new File(path + fileName);
 
             // 如果文件不存在
             if (!file.exists()) {

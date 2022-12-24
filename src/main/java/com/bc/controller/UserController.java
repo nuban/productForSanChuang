@@ -20,6 +20,7 @@ import io.ipfs.api.MerkleNode;
 import io.ipfs.api.NamedStreamable;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
@@ -52,6 +53,9 @@ import java.util.List;
 @RequestMapping("/user")
 @Slf4j // 用于日志
 public class UserController {
+
+    @Value("${upload.path}")
+    private String path;
 
     @Autowired
     private UserService userService;
@@ -292,9 +296,9 @@ public class UserController {
         String newFileName = user.getUserName() + "_" + System.currentTimeMillis() + "." +oldFileName.substring(oldFileName.lastIndexOf(".")+1);
         System.out.println(System.currentTimeMillis());
         System.out.println(newFileName);
-        String filePath = "E:\\wampserver\\www\\image\\headImage\\";
+//        String filePath = "E:\\wampserver\\www\\image\\headImage\\";
 //        String filePath = "D:\\PHPlearn\\";
-        File dest = new File(filePath + newFileName);
+        File dest = new File(path + newFileName);
         if (!dest.getParentFile().exists()){
             dest.getParentFile().mkdirs();
         }
