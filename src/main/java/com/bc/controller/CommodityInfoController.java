@@ -250,10 +250,10 @@ public class CommodityInfoController {
             modelAndView.addObject("carList",this.shoppingCartService.findList(user.getId()));
         }
         // 商品详情功能实现
-        modelAndView.addObject("commodityDetail",this.commodityInfoService.getById(id));
         CommodityInfo commodityInfo = this.commodityInfoService.getById(id);
-        QueryWrapper queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq(user,commodityInfoService.getById(id));
+        modelAndView.addObject("commodityDetail",commodityInfo);
+//        QueryWrapper queryWrapper = new QueryWrapper<>();
+//        queryWrapper.eq(user,commodityInfoService.getById(id));
         User author = userMapper.selectOne(new QueryWrapper<User>().eq("user_name",commodityInfo.getByName()));
         modelAndView.addObject("author",author);
         System.out.println(author);
@@ -277,8 +277,8 @@ public class CommodityInfoController {
 
         modelAndView.addObject("commodityDetail",this.commodityInfoService.getById(id));
         CommodityInfo commodityInfo = this.commodityInfoService.getById(id);
-        QueryWrapper queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq(user,commodityInfoService.getById(id));
+//        QueryWrapper queryWrapper = new QueryWrapper<>();
+//        queryWrapper.eq(user,commodityInfoService.getById(id));
         System.out.println(user);
         //作者查询
         User author = userMapper.selectOne(new QueryWrapper<User>().eq("monery_add",commodityInfo.getByAddress()));

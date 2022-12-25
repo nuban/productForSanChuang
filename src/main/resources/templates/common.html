@@ -820,7 +820,7 @@
                                     <div class="nft-item-bottom">
                                         <div class="nft-thumb">
                                             <a th:href="'/product/detail/'+${auction.getId()}">
-                                                <img  th:src="'http://localhost:80/image/checkImage/' + ${auction.getImages()}" />
+                                                <img  th:src="'http://localhost:8080/image/checkImage?fileName=' + ${auction.getImages()}" />
                                             </a>
                                             <!-- nft countdwon -->
                                             <!--                                            <a href="">-->

@@ -352,7 +352,7 @@
                                                                                     <ul class="author-list d-flex">
                                                                                         <li class="single-author">
                                                                                             <a href="author.html"><img
-                                                                                                    th:src="'http://localhost:80/image/headImage/' + ${session.user.getHeadImage()}" />
+                                                                                                    th:src="'http://localhost:8080/image/checkImage?fileName=' + ${session.user.getHeadImage()}" />
 <!--                                                                                                    src="/assets/images/seller/collector-1.png"-->
 <!--                                                                                                    alt="author-img">-->
                                                                                             </a>
@@ -373,7 +373,7 @@
                                                                                 <div class="nft-thumb">
                                                                                     <a th:href="'/product/detail/'+${cart.getCommodityId()}">
 <!--                                                                                        <img  th:src="'/images/'+ ${cart.getCmdImages()}" />-->
-                                                                                        <img  th:src="'http://localhost:80/image/checkImage/'+ ${cart.getCmdImages()}" />
+                                                                                        <img  th:src="'http://localhost:8080/image/checkImage?fileName='+ ${cart.getCmdImages()}" />
 
                                                                                     </a>
                                                                                     <!-- nft countdwon -->
@@ -457,7 +457,7 @@
                                                                                 <div class="author-part">
                                                                                     <ul class="author-list d-flex">
                                                                                         <li class="single-author">
-                                                                                            <a href="author.html"><img th:src="'http://localhost:80/image/headImage/' + ${session.user.getHeadImage()}" />
+                                                                                            <a href="author.html"><img th:src="'http://localhost:8080/image/checkImage?fileName=' + ${session.user.getHeadImage()}" />
 <!--                                                                                                    src="/assets/images/seller/collector-1.png"-->
 <!--                                                                                                    alt="author-img"></a>-->
                                                                                         </li>
@@ -474,7 +474,7 @@
                                                                                 <div class="nft-thumb">
                                                                                     <a th:href="'/product/detail/'+${pro.getId()}">
 <!--                                                                                        <img  th:src="'/images/' + ${pro.getImages()}" />-->
-                                                                                        <img  th:src="'http://localhost:80/image/checkImage/' + ${pro.getImages()}" />
+                                                                                        <img  th:src="'http://localhost:8080/image/checkImage?fileName=' + ${pro.getImages()}" />
                                                                                         <!-- nft countdwon -->
                                                                                     </a>
                                                                                     <span

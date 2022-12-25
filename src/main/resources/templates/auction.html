@@ -95,7 +95,7 @@
                         <div class="item-desc-part">
                             <div class="item-desc-inner">
                                 <div class="item-desc-thumb">
-                                    <img th:src="'http://localhost:80/image/checkImage'+${commodityDetail.getImages()}" style="width:450px" alt="item-img">
+                                    <img th:src="'http://localhost:8080/image/checkImage?fileName='+${commodityDetail.getImages()}" style="width:450px" alt="item-img">
                                 </div>
                                 <div class="item-desc-content">
                                     <nav>
@@ -113,7 +113,7 @@
                                             <div class="author-profile d-flex flex-wrap align-items-center gap-15">
                                                 <div class="author-p-thumb">
                                                     <a href="author.html"><img
-                                                            th:src="'http://localhost:80/image/headImage' + ${author.getHeadImage()}"
+                                                            th:src="'http://localhost:8080/image/checkImage?fileName=' + ${author.getHeadImage()}"
                                                             alt="author-img "></a>
                                                 </div>
                                                 <div class="author-p-info">
