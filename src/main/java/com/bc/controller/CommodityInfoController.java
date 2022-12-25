@@ -281,7 +281,7 @@ public class CommodityInfoController {
 //        queryWrapper.eq(user,commodityInfoService.getById(id));
         System.out.println(user);
         //作者查询
-        User author = userMapper.selectOne(new QueryWrapper<User>().eq("monery_add",commodityInfo.getByAddress()));
+        User author = userMapper.selectOne(new QueryWrapper<User>().eq("user_name",commodityInfo.getByName()));
         modelAndView.addObject("author",author);
         return modelAndView;
     }
@@ -305,7 +305,7 @@ public class CommodityInfoController {
         queryWrapper.eq(user,commodityInfoService.getById(id));
         System.out.println(user);
         //作者查询
-        User author = userMapper.selectOne(new QueryWrapper<User>().eq("monery_add",commodityInfo.getByAddress()));
+        User author = userMapper.selectOne(new QueryWrapper<User>().eq("user_name",commodityInfo.getByName()));
         modelAndView.addObject("author",author);
         return modelAndView;
     }
