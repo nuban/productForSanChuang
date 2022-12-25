@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : local
+ Source Server         : dz
  Source Server Type    : MySQL
  Source Server Version : 80025
- Source Host           : localhost:3306
+ Source Host           : 127.0.0.1:3306
  Source Schema         : nft
 
  Target Server Type    : MySQL
  Target Server Version : 80025
  File Encoding         : 65001
 
- Date: 23/12/2022 21:06:00
+ Date: 25/12/2022 18:54:46
 */
 
 SET NAMES utf8mb4;
@@ -35,14 +35,12 @@ CREATE TABLE `commodity_info`  (
   `auction` decimal(10, 0) NULL DEFAULT NULL,
   `auctionid` int(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 33 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of commodity_info
 -- ----------------------------
-INSERT INTO `commodity_info` VALUES (30, 'dz', 120.00, NULL, 'admin', 'dz', '1671611592213-1029538113.jpg', NULL, '2022-12-21 :04:33:12', NULL, NULL, NULL);
-INSERT INTO `commodity_info` VALUES (31, '12', 12.00, NULL, 'admin', '12', '1671612661783574561774.jpg', NULL, '2022-12-21 :04:51:01', NULL, NULL, NULL);
-INSERT INTO `commodity_info` VALUES (32, '123', 123.00, NULL, 'admin', '123', '16716128889731746683608.jpg', NULL, '2022-12-21 :04:54:49', NULL, NULL, NULL);
+INSERT INTO `commodity_info` VALUES (38, 'hello', 110.00, NULL, 'zs1', 'hello', 'zs1_1671964056295.jpg', NULL, '2022-12-25 :06:27:50', '1', 155, 22);
 
 -- ----------------------------
 -- Table structure for conferences
@@ -92,7 +90,12 @@ CREATE TABLE `conferences`  (
   INDEX `conferences_admin_id_fk`(`adminId`) USING BTREE,
   INDEX `conferences_comment_conferenceNameLink_fk`(`parentId`) USING BTREE,
   INDEX `conferences_user_id_fk`(`userId`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '会议表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '会议表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of conferences
+-- ----------------------------
+INSERT INTO `conferences` VALUES (1, 1, 1, 1, 12, '12', '12', '12', '2022-12-24 20:41:18', '2022-12-24 20:41:22', '2022-12-24 20:41:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, '2022-12-24 20:41:30', '2022-12-24 20:41:30', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for order_info
@@ -112,6 +115,14 @@ CREATE TABLE `order_info`  (
   `creat_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 36 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of order_info
+-- ----------------------------
+INSERT INTO `order_info` VALUES (36, '1231', 33, 'dingdanHASH', 123.00, '1671882925602696666159.jpg', '123', NULL, 22, 'MoneyAddress', '2022-12-25 14:21:46');
+INSERT INTO `order_info` VALUES (37, 'dz', 34, 'dingdanHASH', 122.00, '16718873445551098365896.jpg', 'dz', '1232222', 22, 'MoneyAddress', '2022-12-25 15:20:32');
+INSERT INTO `order_info` VALUES (38, '1231', 33, 'dingdanHASH', 123.00, '1671882925602696666159.jpg', '123', '123123', 22, 'MoneyAddress', '2022-12-25 15:29:54');
+INSERT INTO `order_info` VALUES (39, '1231', 33, 'dingdanHASH', 123.00, '1671882925602696666159.jpg', '123', '123123', 22, 'MoneyAddress', '2022-12-25 15:29:54');
 
 -- ----------------------------
 -- Table structure for shopping_cart
@@ -144,7 +155,16 @@ CREATE TABLE `tempname`  (
   `user_id` int(0) NULL DEFAULT NULL,
   `category` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 61 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 66 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tempname
+-- ----------------------------
+INSERT INTO `tempname` VALUES (61, 'buff', 1220.00, '123', 'zs1_1671883972747.jpg', '2022-12-24 20:12:52', 22, '1');
+INSERT INTO `tempname` VALUES (62, 'fffff', 110.00, 'ffff', 'zs1_1671884773609.jpg', '2022-12-24 20:26:14', 22, '2');
+INSERT INTO `tempname` VALUES (63, 'tg', 110.00, 'ff', 'zs1_1671884792554.jpg', '2022-12-24 20:26:33', 22, '3');
+INSERT INTO `tempname` VALUES (65, '李大头', 110.00, '这是一个ntf', 'zs1_1671948835129.jpg', '2022-12-25 14:13:57', 22, '2');
+INSERT INTO `tempname` VALUES (66, '111', 1220.00, '123', 'zs1_1671953419950.jpg', '2022-12-25 15:30:22', 22, '4');
 
 -- ----------------------------
 -- Table structure for user
@@ -165,7 +185,7 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, 'zs', '$2a$10$F1FK2mxVoB1pHHlJ/b3eDeKFwAoW7BU3VgxBU86DT5w.Cu7zUVuWy', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `user` VALUES (22, 'zs1', '123456', 'MoneyAddress', 0.00, NULL, '2022-12-23 20:03:42', NULL);
+INSERT INTO `user` VALUES (1, 'zs', '$2a$10$F1FK2mxVoB1pHHlJ/b3eDeKFwAoW7BU3VgxBU86DT5w.Cu7zUVuWy', '123123', 0.00, 'zs1_1671887087079.jpg', NULL, NULL);
+INSERT INTO `user` VALUES (22, 'zs1', '123456', '1232222', 0.00, 'zs1_1671887087079.jpg', '2022-12-23 20:03:42', NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;
