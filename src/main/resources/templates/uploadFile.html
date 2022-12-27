@@ -40,6 +40,7 @@
 <!--</style>-->
 
 <body>
+<p id="res" style="display: none" th:text="${addData}"></p>
     <!-- preloader start here -->
     <div class="preloader">
         <div class="preloader-inner">
@@ -86,11 +87,15 @@
                         <div class="create-nft py-5 px-4">
                             <form class="create-nft-form" action="/tempname/upload" method="post" enctype="multipart/form-data">
                                 <!-- upload field -->
-                                <div class="upload-item mb-30">
-                                    <img id="myImg" src="" width="180px" style="margin-top:25vh ;">
-                                    <p>PNG,JPG,JPEG,SVG,WEBP,Mp3 & Mp4
+                                <div class="upload-item mb-30" style="width: 74%;
+    margin: 0 auto;">
+                                    <img id="myImg" style="max-width: 100%;
+    width: 100%;
+    object-fit: cover;
+    height: 100%;"  >
+                                    <p id="up1">PNG,JPG,JPEG,SVG,WEBP,Mp3 & Mp4
                                         (Max-150mb)</p>
-                                    <div class="custom-upload">
+                                    <div id="up" class="custom-upload">
                                         <div class="file-btn"><i class="icofont-upload-alt"></i>
                                             上传文件</div>
                                         <input onchange="changImg(event)"  class="file" type="file" name="commodityImages" id="commodityImages" required/>
@@ -208,6 +213,11 @@
                                             freader.readAsDataURL(file);
                                             freader.onload = function(e) {
                                                 $("#myImg").attr("src",e.target.result);
+                                                //隐藏元素
+                                                var dom0 = document.getElementById("up");
+                                                var dom1 = document.getElementById("up1");
+                                                dom0.style.display = "none";
+                                                dom1.style.display = "none";
                                             }
                                         }
                                     }
@@ -235,6 +245,13 @@
     <a href="#" class="scrollToTop"><i class="icofont-swoosh-up"></i></a>
     <!-- scrollToTop ending here -->
 
+
+    <script>
+        var res = $('#res').text()
+        if(res){
+            alert(res)
+        }
+    </script>
 
 
 
