@@ -28,6 +28,16 @@
     <!-- site title -->
     <title>作品上传</title>
 </head>
+<script src="/assets/js/jquery-3.6.0.min.js"></script>
+
+<!--<style>-->
+<!--    .alert{-->
+<!--        position: fixed;-->
+<!--        width: 50%;-->
+<!--        margin-left: 20%;-->
+<!--        z-index: 2000;-->
+<!--    }-->
+<!--</style>-->
 
 <body>
     <!-- preloader start here -->
@@ -39,6 +49,7 @@
             </div>
         </div>
     </div>
+
     <!-- preloader ending here -->
 
     <!-- ===============// header section start here \\================= -->
@@ -53,11 +64,11 @@
             <div class="page-header-content">
                 <div class="page-header-inner">
                     <div class="page-title">
-                        <h2>创 建 我 的 NFT </h2>
+                        <h2>添 加 农 产 品 </h2>
                     </div>
                     <ol class="breadcrumb">
                         <li><a href="index.html">主页</a></li>
-                        <li class="active">创 建 NFT</li>
+                        <li class="active">添加农产品</li>
                     </ol>
                 </div>
             </div>
@@ -76,12 +87,13 @@
                             <form class="create-nft-form" action="/tempname/upload" method="post" enctype="multipart/form-data">
                                 <!-- upload field -->
                                 <div class="upload-item mb-30">
+                                    <img id="myImg" src="" width="180px" style="margin-top:25vh ;">
                                     <p>PNG,JPG,JPEG,SVG,WEBP,Mp3 & Mp4
                                         (Max-150mb)</p>
                                     <div class="custom-upload">
                                         <div class="file-btn"><i class="icofont-upload-alt"></i>
                                             上传文件</div>
-                                        <input  class="file" type="file" name="commodityImages" id="commodityImages" required/>
+                                        <input onchange="changImg(event)"  class="file" type="file" name="commodityImages" id="commodityImages" required/>
                                     </div>
                                 </div>
                                 <!-- item name input -->
@@ -104,56 +116,56 @@
                                             <option selected value="1">
                                                 <li class="item-cat-btn active">
                                                     <span><i class="icofont-vector-path"></i></span>
-                                                    艺术类
+                                                    粮食类
                                                 </li>
                                             </option>
                                             <option value="2">
                                                 <li class="item-cat-btn">
                                                     <span><i class="icofont-music-disk"></i></span>
-                                                    音乐类
+                                                    油料类
                                                 </li>
                                             </option>
                                             <option value="3">
                                                 <li class="item-cat-btn">
                                             <span>
                                                 <i class="icofont-box"></i>
-                                            </span> 整合类
+                                            </span> 肉类
                                                 </li>
                                             </option>
                                             <option value="4">
                                                 <li class="item-cat-btn">
                                                     <span><i class="icofont-ui-game"></i></span>
-                                                    运动类
+                                                    糖类
                                                 </li>
                                             </option>
                                             <option value="5">
                                                 <li class="item-cat-btn">
                                                     <span><i class="icofont-bill"></i></span>
-                                                    收集类
+                                                    果品类
                                                 </li>
                                             </option>
                                             <option value="6">
                                                 <li class="item-cat-btn">
                                                     <span><i class="icofont-penalty-card"></i></span>
-                                                    卡片类
+                                                    干菜类
                                                 </li>
                                             </option>
                                             <option value="7">
                                                 <li class="item-cat-btn">
                                             <span>
                                                 <i class="icofont-box"></i>
-                                            </span> 元宇宙
+                                            </span> 中药材
                                                 </li>
                                             </option>
                                             <option value="8">
                                                 <li class="item-cat-btn">
                                             <span>
                                                 <i class="icofont-box"></i>
-                                            </span> 领域类
+                                            </span> 蔬菜类
                                                 </li>
                                             </option>
                                         </select>
-                                        <label for="commodityCategory">NFTs种类</label>
+                                        <label for="commodityCategory">农产品种类</label>
                                     </div>
                                 </div>
                                 <!-- item price -->
@@ -184,6 +196,24 @@
                                     }
 
 
+                                    function changImg(e){
+                                        console.log(e)
+                                        for (var i = 0; i < e.target.files.length; i++) {
+                                            var file = e.target.files.item(i);
+                                            if (!(/^image\/.*$/i.test(file.type))) {
+                                                continue; //不是图片 就跳出这一次循环
+                                            }
+                                            //实例化FileReader API
+                                            var freader = new FileReader();
+                                            freader.readAsDataURL(file);
+                                            freader.onload = function(e) {
+                                                $("#myImg").attr("src",e.target.result);
+                                            }
+                                        }
+                                    }
+
+
+
                             </script>
                         </div>
                     </div>
@@ -209,7 +239,6 @@
 
 
     <!-- All Scripts -->
-    <script src="/assets/js/jquery-3.6.0.min.js"></script>
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/js/waypoints.min.js"></script>
     <script src="/assets/js/swiper-bundle.min.js"></script>

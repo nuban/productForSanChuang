@@ -1,20 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <style>
+        .alert{
+            position: fixed;
+            width: 50%;
+            margin-left: 20%;
+            z-index: 2000;
+        }
+    </style>
+</head>
 
-<div id="msgDiv" align="center" style="background: white; border: 1px solid rgb(153, 187, 232); position: absolute; left: 50%; top: 30%; font: 12px / 25px Verdana, Geneva, Arial, Helvetica, sans-serif; margin-left: -225px; margin-top: -75px; width: 400px; height: 400px; text-align: center; z-index: 10001;">
-    <h4 id="msgTitle" align="right" style="margin: 0px; padding: 3px; background: rgb(153, 187, 232); border: 1px solid rgb(153, 187, 232); height: 18px; font: 12px Verdana, Geneva, Arial, Helvetica, sans-serif; color: white; cursor: pointer;">关闭</h4>
-    <p id="msgTxt" style="margin: 1em 0px;"><div class="upload-item mb-30">
-        <form id="upload" action="/tempname/updateheadimg" method="post" enctype="multipart/form-data">
-            <input type="hidden" value="1" name="productAttrId"><input type="hidden" value="2" name="productId">选择图片：
-            <input class="file" type="file" id="file" name="productPic">
-            <a class="easyui-linkbutton l-btn l-btn-plain" iconcls="icon-ok" href="#">
-                    <span>
-                        <button type="submit">
-                            <span class="l-btn-text icon-ok" onclick="upload(3)" style="padding-left: 20px;">
-                                上传
-                            </span>
-                        </button>&gt;
-                    </span>
-            </a>
-        </form>
-        </div>
-    </p>
+<body>
+<div class="alert alert-danger hide">这是一个失败提示！</div>
+<div class="alert alert-success hide">这是一个成功提示！</div>
+<div class="btn">
+    <button class="btn btn-info" id="btn1">失败提示</button><br><br>
+    <button class="btn btn-info" id="btn2">成功提示</button>
 </div>
+
+
+
+<div class="upload-item mb-30" >
+    <!--                                    <img src="/assets/images/seller/collector-2.png"/>-->
+    <p>PNG,JPG,JPEG,SVG,WEBP,Mp3 & Mp4
+        (Max-150mb)</p>
+    <div class="custom-upload">
+        <div class="file-btn"><i class="icofont-upload-alt"></i>
+            上传文件</div>
+        <input  class="file" type="file" name="commodityImages" id="commodityImages" required/>
+    </div>
+</div>
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script>
+    $("#btn1").click(function(){
+        $(".alert-danger").addClass("show");
+        window.setTimeout(function(){
+            $(".alert-danger").removeClass("show");
+        },1000);//显示的时间
+    })
+    $("#btn2").click(function(){
+        $(".alert-success").addClass("show");
+        window.setTimeout(function(){
+            $(".alert-success").removeClass("show");
+        },1000);//显示的时间
+    })
+</script>
+</html>
